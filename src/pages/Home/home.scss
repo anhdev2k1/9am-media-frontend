@@ -1,3 +1,18 @@
 h1 {
   -webkit-text-stroke: 1px #fff;
 }
+
+.banner {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  background-image: url('../../assets/images/bg-banner.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  opacity: 0.15;
+  mix-blend-mode: luminosity;
+  min-height: 900px;
+}
