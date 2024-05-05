@@ -1,0 +1,36 @@
+.service__bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 500px;
+  background-image: url('../../assets/images/services.jpg');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  z-index: -1;
+  mix-blend-mode: luminosity;
+  opacity: 0.12;
+
+  &::before {
+    content: '';
+    position: absolute;
+    background-image: linear-gradient(180deg, #11131900, #15171c);
+    width: 100%;
+    height: 75%;
+    left: 0;
+    bottom: 0;
+    background-color: transparent;
+  }
+  &::after {
+    content: '';
+    height: 100% !important;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: -1;
+    pointer-events: none;
+  }
+}

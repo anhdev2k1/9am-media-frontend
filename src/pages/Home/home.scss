@@ -1,5 +1,5 @@
 h1 {
-  -webkit-text-stroke: 1px #fff;
+  -webkit-text-stroke: 2px white;
 }
 
 .banner {
@@ -12,7 +12,76 @@ h1 {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
-  opacity: 0.15;
+  opacity: 0.5;
   mix-blend-mode: luminosity;
-  min-height: 900px;
+  height: 800px;
+}
+
+.slider__bg {
+  background-image: url('../../assets/images/bg-banner2.jpg');
+  opacity: 0.15;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.slick-track {
+  display: flex;
+  gap: 12px;
+}
+.slider__item {
+  &-over {
+    width: 100%;
+    height: max-content;
+    padding: 5px;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+    transform: translateY(200px);
+    cursor: pointer;
+    transition: transform ease-in-out 0.2s;
+  }
+
+  &:hover {
+    .slider__item-over {
+      transform: translateY(-100%);
+      transition: transform ease-in-out 0.2s;
+    }
+  }
+  .slide__btn-more {
+    > div {
+      transition: width 0.3s;
+    }
+    
+    &:hover {
+      .line__1 {
+        width: 0;
+        transition: width 0.3s;
+      }
+      .line__2 {
+        width: 90px;
+        transition: width 0.3s;
+      }
+    }
+  }
+}
+
+.feedback__item{
+  display: flex !important;
+}
+.slick-dots{
+  bottom: 0;
+}
+.slick-dots > li > button {
+  display: none;
+}
+.slick-dots > li {
+  width: 50px;
+  height: 4px;
+  background-color: white;
+  border: 1px solid #333;
+  bottom: -50px !important;
+}
+.slick-dots > .slick-active {
+  background-color: red !important;
 }
