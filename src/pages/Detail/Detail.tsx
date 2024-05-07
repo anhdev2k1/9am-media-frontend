@@ -8,6 +8,8 @@ const Detail = () => {
           <h1 className='text-[4rem] text-primary font-bold'>Detail</h1>
         </div>
       </div>
+
+      <div className=''></div>
     </div>
   )
 }

@@ -1,3 +1,7 @@
+import Login from '@/admin/pages/Login'
+import ServiceDetail from '@/admin/pages/services-page/ServiceDetail'
+import Services from '@/admin/pages/services-page/Services'
+import ProtectedLayout from '@/layouts/ProtectedLayout'
 import Notfound from '@/pages/404/Notfound'
 import Detail from '@/pages/Detail/Detail'
 import React, { Suspense } from 'react'
@@ -56,6 +60,52 @@ export const routes = createBrowserRouter([
         element: (
           <Suspense>
             <Detail />
+          </Suspense>
+        )
+      }
+    ]
+  },
+  {
+    path: 'login',
+    element: (
+      <Suspense>
+        <Login />
+      </Suspense>
+    )
+  },
+  {
+    path: '/admin',
+    element: <ProtectedLayout />,
+    children: [
+      {
+        path: 'services',
+        element: (
+          <Suspense>
+            <Services />
+          </Suspense>
+        )
+      },
+      {
+        path: 'blogs',
+        element: (
+          <Suspense>
+            <Services />
+          </Suspense>
+        )
+      },
+      {
+        path: 'services/:service_slug',
+        element: (
+          <Suspense>
+            <ServiceDetail />
+          </Suspense>
+        )
+      },
+      {
+        path: 'blogs/:blog_slug',
+        element: (
+          <Suspense>
+            <ServiceDetail />
           </Suspense>
         )
       }

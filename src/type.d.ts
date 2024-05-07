@@ -17,3 +17,15 @@ export interface ICategory extends ITimeStamp {
   slug: string
   isDelete?: number
 }
+
+export interface IUser {
+  _id?: string
+  email: string
+  username?: string
+  password: string
+  isDelete?: number
+}
+
+export interface IUserPayload extends IUser {
+  accessToken: string
+}

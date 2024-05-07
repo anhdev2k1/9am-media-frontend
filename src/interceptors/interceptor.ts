@@ -25,7 +25,7 @@ axiosClient.interceptors.request.use(function (
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   config: InternalAxiosRequestConfig<any>
 ) {
-  const userID: string | null = localStorage.getItem('token')
+  const userID: string | null = localStorage.getItem('x-access-token') || ''
   if (userID) {
     config.headers['x-access-token'] = userID
     // config.headers['Content-Type'] = 'multipart/form-data';
