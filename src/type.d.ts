@@ -29,3 +29,25 @@ export interface IUser {
 export interface IUserPayload extends IUser {
   accessToken: string
 }
+
+export interface IBlog {
+  _id?: string
+  thumbnail?: string
+  title: string
+  description: string
+  content: string
+  slug: string
+  isDelete?: number
+}
+
+export interface IServiceProvide {
+  _id?: string
+  name: string
+  thumnail?: string
+  cover?: string
+  description?: string
+  content: string
+  category: ICategory
+  slug: string
+  isDelete?: number
+}

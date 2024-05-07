@@ -76,6 +76,7 @@ export const routes = createBrowserRouter([
   {
     path: '/admin',
     element: <ProtectedLayout />,
+    errorElement: <Notfound />,
     children: [
       {
         path: 'services',

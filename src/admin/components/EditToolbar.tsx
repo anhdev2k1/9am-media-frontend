@@ -45,9 +45,6 @@ export const modules = {
       // redo: redoChange
     },
   },
-  imageResize : {
-    modules : ['Resize']
-  },
   history: {
     delay: 500,
     maxStack: 100,

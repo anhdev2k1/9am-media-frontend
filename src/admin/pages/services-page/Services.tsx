@@ -1,16 +1,39 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import NavbarAdmin from '@/admin/components/Navbar'
 import { categoryApi } from '@/apis/category-api'
-import { useQuery } from '@tanstack/react-query'
-import { Table } from 'antd'
+import { Button } from '@/components/ui/button'
+import { QueryClient, useMutation, useQuery } from '@tanstack/react-query'
+import { Form, Modal, Table } from 'antd'
+import { useEffect, useState } from 'react'
 const Services = () => {
-  const { data: ListService, isLoading } = useQuery({ queryKey: ['services'], queryFn: categoryApi.findAllCategories })
+  const queryClient = new QueryClient()
+  const [query, setQuery] = useState<{ page: number; total: number; pageSize: number }>({
+    page: 1,
+    pageSize: 10,
+    total: 0
+  })
+  const [currentCategory, setCurrentCategory] = useState<any>(null)
+  const [form] = Form.useForm()
+  const [openModal, setOpenModal] = useState<boolean>(false)
+  const {
+    data: ListService,
+    isLoading,
+    refetch
+  } = useQuery({
+    queryKey: ['services'],
+    queryFn: () => categoryApi.findAllCategories(query.page, query.pageSize)
+  })
+
+  const { mutate: DeleteCategory } = useMutation({
+    mutationFn: categoryApi.deleteCategory
+  })
 
   const ServiceColumns = [
     {
       title: 'Hình ảnh',
       dataIndex: 'thumbnail',
       key: 'thumbnail',
-      render: (record: any) => <img src={record} alt='service-img' className='w-[120px] rounded-md' />
+      render: (record: any) => <img src={record} alt='service-img' className='w-[100px] rounded-md' />
     },
     {
       title: 'Tên dịch vụ',
@@ -20,9 +43,43 @@ const Services = () => {
     {
       title: 'Mô tả',
       dataIndex: 'description',
-      key: 'description'
+      key: 'description',
+      render: (record: string) => <span className='line-clamp-1'>{record}</span>
+    },
+    {
+      title: 'Thao tác',
+      width: '15%',
+      render: (record: any) => {
+        return (
+          <div className='flex items-center gap-2'>
+            <Button
+              onClick={() => {
+                setOpenModal(!openModal)
+              }}
+              className='bg-secondary'
+            >
+              Cập nhật
+            </Button>
+            <Button
+              onClick={() => {
+                DeleteCategory(record._id)
+                refetch()
+              }}
+            >
+              Xoá
+            </Button>
+          </div>
+        )
+      }
     }
   ]
+
+  useEffect(() => {
+    if (query.page) {
+      refetch()
+    }
+  }, [query.page])
+
   return (
     <div className='flex flex-col bg-white'>
       <NavbarAdmin />
@@ -36,21 +93,38 @@ const Services = () => {
 
           <Table
             columns={ServiceColumns}
-            dataSource={ListService?.metadata}
+            dataSource={ListService?.metadata.data}
             loading={isLoading}
             pagination={{
-              total: 10,
+              onChange(page, pageSize) {
+                setQuery((prev) => ({
+                  ...prev,
+                  page,
+                  pageSize
+                }))
+                queryClient.invalidateQueries({ queryKey: ['services', { page, pageSize }] })
+              },
+              total: Number(ListService?.metadata.totalPage) * 10,
               pageSize: 10,
-              showSizeChanger: true,
-              showQuickJumper: true,
               responsive: true,
               position: ['bottomCenter'],
-
-              current: 1
+              current: query.page
+            }}
+            onRow={(record) => {
+              return {
+                onClick: () => {
+                  setCurrentCategory(record)
+                }
+              }
             }}
           />
         </div>
       </div>
+      {openModal && (
+        <Modal open={openModal} onCancel={() => setOpenModal(false)} title='Cập nhật' onOk={form.submit}>
+          <Form layout='vertical'></Form>
+        </Modal>
+      )}
     </div>
   )
 }
