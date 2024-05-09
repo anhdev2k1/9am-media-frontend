@@ -7,7 +7,7 @@ const ApplicationLayout = () => {
   return (
     <>
       <BaseComponent />
-      <div className='w-full flex flex-col'>
+      <div className='w-full flex flex-col overflow-x-hidden'>
         <Navbar />
         <div className='h-full flex-1 mt-[90px]'>
           <Outlet />

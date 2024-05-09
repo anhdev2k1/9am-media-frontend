@@ -8,6 +8,16 @@ import { categoryApi } from '@/apis/category-api'
 import { useQuery } from '@tanstack/react-query'
 import { AuroraBackground } from '@/components/AuroraBackground'
 import { BentoGridItem } from '@/components/BentoGrid'
+import bannerHeader from '@/assets/images/banner.png'
+import kh_1 from '@/assets/images/kh_1.jpeg'
+import kh_2 from '@/assets/images/kh_2.jpeg'
+import kh_3 from '@/assets/images/kh_3.jpeg'
+import kh_4 from '@/assets/images/kh_4.jpeg'
+import kh_5 from '@/assets/images/kh_5.jpeg'
+import kh_6 from '@/assets/images/kh_6.jpeg'
+import kh_7 from '@/assets/images/kh_7.jpeg'
+import kh_8 from '@/assets/images/kh_8.jpeg'
+import kh_9 from '@/assets/images/kh_9.jpeg'
 const Home = () => {
   const [slide, setSlide] = useState<number>(1)
   const settings = {
@@ -79,7 +89,7 @@ const Home = () => {
   }
 
   const fetchCategories = async () => {
-    const res = await categoryApi.findAllCategories()
+    const res = await categoryApi.findAllCategories(1, 5)
     return res.metadata
   }
   const { data: Categories } = useQuery({
@@ -110,7 +120,7 @@ const Home = () => {
             title1='9AM Media'
             title2='Giải Pháp Truyền Thông'
             title3='Dành Cho Bạn          '
-            desc='9AM Media là đơn vị truyền thông với đội ngũ trẻ và năng động, chuyên cung cấp các giải pháp và dịch vụ trong lĩnh vực truyền thông. Chúng tôi luôn đặt sự hài lòng của khách hàng làm “kim chỉ nam” trong suốt quá trình làm việc.'
+            desc='CHÚNG TÔI LÀ 9AM MEDIA NGÔI NHÀ CỦA NHỮNG GIẢI PHÁP TRUYỀN THÔNG VÀ CHIẾN LƯỢC SÁNG TẠO NHẤT THỊ TRƯỜNG.'
             setBanner={setSlide}
           />
         )}
@@ -125,22 +135,51 @@ const Home = () => {
           />
         )}
       </div>
-      <div className='flex flex-col gap-5 relative  pt-[50px] pb-[100px]'>
-        <div className='slider__bg'></div>
-        <div className='max-sm:flex-col lg:flex items-center justify-between mb-[60px]'>
-          <div className='max-sm:flex-col max-sm:text-center lg:flex items-center gap-4 p-5'>
-            <div className='max-sm:hidden w-[90px] h-[3px] bg-secondary-foreground rounded-md line__1'></div>
-            <div className='max-sm:hidden w-[35px] h-[35px] rounded-[50%] bg-primary animate-bounce'></div>
-            <h1 className='text-3xl lg:text-[3rem] font-normal text-secondary-foreground'>Dịch Vụ</h1>
-            <h1 className='text-[3rem] lg:text-[5rem] font-bold text-primary'>Nổi bật</h1>
-          </div>
-          <div className='border-l-[2px] border-primary p-5 lg:w-[50%] max-sm:text-center'>
-            <p className=''>9AM Media mang đến sự trải nghiệm tốt nhất cho khách hàng với nhiều dịch vụ chất lượng.</p>
+      <div className='w-full min-h-[350px] flex justify-between items-center p-5 gap-10 pt-[100px] pb-[100px]'>
+        <div className='w-[550px]'>
+          <img src={bannerHeader} alt='' className='w-full h-full object-cover' />
+        </div>
+        <div className='flex flex-col gap-5 flex-1'>
+          <h1 className='text-[3rem] font-bold text-primary'>ABOUT US</h1>
+          <p className='text-[15px] font-medium text-secondary-foreground '>
+            9AM MEDIA là đơn vị truyền thông với đội ngũ trẻ và năng động, chuyên cung cấp các giải pháp và dịch vụ
+            trong lĩnh vực truyền thông. Chúng tôi luôn đặt sự hài lòng của khách hàng làm “kim chỉ nam” trong suốt quá
+            trình làm việc.
+          </p>
+          <p className='text-[15px] font-medium text-secondary-foreground '>
+            Mục tiêu lớn nhất của chúng tôi là trở thành đối tác, một người bạn đồng hành đáng tin của khách hàng trên
+            hành trình xây dựng thành tựu. Biến những ý tưởng thành hiện thực tạo ra giá trị gia tăng thực tế, mang lại
+            sự tăng trưởng về quy mô và mở rộng tầm ảnh hưởng của thương hiệu trên thị trường.
+          </p>
+          <div className='flex items-center gap-[50px] mt-[20px]'>
+            <div>
+              <span className='text-[2rem] font-bold text-primary flex flex-col gap-3'>1.000+</span>
+              <span>Dự án triển khai</span>
+            </div>
+            <div>
+              <span className='text-[2rem] font-bold text-primary flex flex-col gap-3'>100+</span>
+              <span>Khách hàng</span>
+            </div>
+            <div>
+              <span className='text-[2rem] font-bold text-primary flex flex-col gap-3'>30+</span>
+              <span>Đối tác toàn quốc</span>
+            </div>
           </div>
         </div>
-        <Slider {...settings} className='min-h-[350px] pb-[50px] pl-5 pr-5' autoplay>
+      </div>
+      <div className='flex flex-col gap-5 relative  pt-[50px] pb-[100px]'>
+        <div className='slider__bg'></div>
+        <div className='max-sm:flex-col lg:flex-col items-center justify-between mb-[60px] pl-[30px]'>
+          <div className='max-sm:flex-col max-sm:text-center lg:flex items-center gap-4 p-5'>
+            <h1 className='text-[3rem] font-bold text-primary'>DỊCH VỤ</h1>
+          </div>
+          <div className='border-l-[4px] border-primary p-5 lg:w-[50%] max-sm:text-center'>
+            <p>Cùng khám phá chuỗi dịch vụ truyền thông sáng tạo và công nghệ đa phương tiện của chúng tôi.</p>
+          </div>
+        </div>
+        <Slider {...settings} className='min-h-[350px] pb-[50px] pl-5 pr-5' autoplay dots>
           {Categories &&
-            Categories.map((category) => {
+            Categories.data.map((category) => {
               return (
                 <BentoGridItem
                   title={category.name}
@@ -153,11 +192,129 @@ const Home = () => {
         </Slider>
       </div>
 
+      <div className='flex flex-col justify-center gap-5 mt-[100px] p-5 pb-[100px]'>
+        <div className='max-sm:flex-col lg:flex-col items-center justify-between mb-[60px] pl-[30px]'>
+          <div className='max-sm:flex-col max-sm:text-center lg:flex items-center gap-4 p-5'>
+            <h1 className='text-[3rem] font-bold text-primary'>THỐNG KÊ</h1>
+          </div>
+          <div className='border-l-[2px] border-primary p-5 lg:w-[50%] max-sm:text-center'>
+            <p className=''>
+              Với kinh nghiệm nhiều năm trong lĩnh vực này, chúng tôi tự tin mang lại những điều tốt nhất cho khách hàng
+            </p>
+          </div>
+        </div>
+        <div className='max-sm:flex-col flex gap-3 items-center justify-center mt-[50px]'>
+          <div className='w-[300px] h-[300px] rounded-[50%] border-[3px] border-primary flex flex-col justify-center items-center hover:animate-pulse'>
+            <h1 className='font-bold text-[4rem] text-primary'>100+</h1>
+            <p className='font-semibold text-[20px]'>Dự án tham gia</p>
+          </div>
+          <div className='max-sm:hidden w-[150px] h-[3px] bg-primary rounded-md'></div>
+          <div className='w-[300px] h-[300px] rounded-[50%] border-[3px] border-primary flex flex-col justify-center items-center hover:animate-pulse'>
+            <h1 className='font-bold text-[4rem] text-primary'>540+</h1>
+            <p className='font-semibold text-[20px]'>Đơn hàng thành công</p>
+          </div>
+          <div className='max-sm:hidden w-[150px] h-[3px] bg-primary rounded-md'></div>
+          <div className='w-[300px] h-[300px] rounded-[50%] border-[3px] border-primary flex flex-col justify-center items-center hover:animate-pulse'>
+            <h1 className='font-bold text-[4rem] text-primary'>1000+</h1>
+            <p className='font-semibold text-[20px]'>Lượt đánh giá 5*</p>
+          </div>
+        </div>
+      </div>
+
+      <div className='max-sm:flex-col max-sm:text-center flex items-center justify-between mt-[50px] pb-[100px] pt-[100px]'>
+        <div className='flex flex-col items-start gap-3 p-5 flex-1 w-max'>
+          <h1 className='text-[2rem] font-bold lg:text-[4rem] text-secondary-foreground'>Đừng Ngần Ngại</h1>
+          <h1 className='text-[2rem] font-bold lg:text-[4rem] text-secondary-foreground'>Số Hoá Doanh Nghiệp</h1>
+          <h1 className='text-[4rem] font-extrabold lg:text-[5rem] text-primary text-start animate-pulse'>Của Bạn</h1>
+        </div>
+        <div className='w-full lg:w-[40%] border-l-2 border-primary flex-shrink-0 p-5 text-secondary-foreground'>
+          <p>
+            Với kinh nghiệm hơn 6 năm cung cấp dịch vụ. 9AM Media cam kết đem đến khách hàng chất lượng dịch vụ tốt
+            nhất.
+          </p>
+          <div className='flex items-center gap-3 mt-[20px] slide__btn-more cursor-pointer'>
+            <div className='w-[90px] h-[3px] bg-secondary-foreground rounded-md line__1'></div>
+            <div className='w-[15px] h-[15px] rounded-[50%] bg-primary animate-bounce'></div>
+            <span className='font-medium text-lg'>Bắt đầu cùng chúng tôi!</span>
+          </div>
+        </div>
+      </div>
+
+      <div className='flex flex-col gap-5 relative pt-[100px] pb-[50px]'>
+        <div className='max-sm:flex-col lg:flex-col items-center justify-between mb-[60px] pl-[30px]'>
+          <div className='max-sm:flex-col max-sm:text-center lg:flex items-center gap-4 p-5'>
+            <h1 className='text-[3rem] font-bold text-primary'>DỰ ÁN</h1>
+          </div>
+          <div className='border-l-[5px] border-primary p-5 lg:w-[50%] max-sm:text-center'>
+            <p className=''>
+              Với kinh nghiệm nhiều năm trong lĩnh vực này, chúng tôi tự tin mang lại những điều tốt nhất cho khách hàng
+            </p>
+          </div>
+        </div>
+        <Slider {...settings} className='min-h-[350px] pb-[50px] pl-5 pr-5' autoplay dots>
+          {Categories &&
+            Categories.data.map((category) => {
+              return (
+                <BentoGridItem
+                  title={category.name}
+                  thumbnail={category.thumbnail}
+                  description={category.description}
+                  key={category._id}
+                />
+              )
+            })}
+        </Slider>
+      </div>
+
+      <div className='flex flex-col gap-5 relative pt-[100px] pb-[50px]'>
+        <div className='max-sm:flex-col lg:flex-col items-center justify-between mb-[60px] pl-[30px]'>
+          <div className='max-sm:flex-col max-sm:text-center lg:flex items-center gap-4 p-5'>
+            <h1 className='text-[3rem] font-bold text-primary'>KHÁCH HÀNG</h1>
+            <h1 className='text-[3rem] font-bold text-secondary-foreground'>CỦA CHÚNG TÔI</h1>
+          </div>
+          <Slider {...settings} className='min-h-[350px] p-5 pb-[50px] mt-[50px]' autoplay dots>
+            <div>
+              <img src={kh_1} alt='' className='w-[230px] rounded-md' />
+            </div>
+            <div>
+              <img src={kh_2} alt='' className='w-[230px] rounded-md' />
+            </div>
+            <div>
+              <img src={kh_3} alt='' className='w-[230px] rounded-md' />
+            </div>
+            <div>
+              <img src={kh_4} alt='' className='w-[230px] rounded-md' />
+            </div>
+            <div>
+              <img src={kh_5} alt='' className='w-[230px] rounded-md' />
+            </div>
+            <div>
+              <img src={kh_6} alt='' className='w-[230px] rounded-md' />
+            </div>
+            <div>
+              <img src={kh_7} alt='' className='w-[230px] rounded-md' />
+            </div>
+            <div>
+              <img src={kh_8} alt='' className='w-[230px] rounded-md' />
+            </div>
+            <div>
+              <img src={kh_9} alt='' className='w-[230px] rounded-md' />
+            </div>
+          </Slider>
+        </div>
+      </div>
+
       <div className='flex flex-col gap-4 p-3 mt-[50px] mb-[50px]'>
-        <div className='max-sm:flex-col max-sm:text-center lg:flex items-center gap-4 p-5'>
-          <div className='max-sm:hidden w-[90px] h-[3px] bg-secondary-foreground rounded-md line__1'></div>
-          <div className='max-sm:hidden w-[35px] h-[35px] rounded-[50%] bg-primary animate-bounce'></div>
-          <h1 className='text-3xl lg:text-[3rem] font-normal text-secondary-foreground'>Đánh giá</h1>
+        <div className='max-sm:flex-col lg:flex-col items-center justify-between mb-[60px] pl-[30px]'>
+          <div className='max-sm:flex-col max-sm:text-center lg:flex items-center gap-4 p-5'>
+            <h1 className='text-[3rem] font-bold text-primary'>ĐÁNH GIÁ</h1>
+          </div>
+          <div className='border-l-[5px] border-primary p-5 lg:w-[50%] max-sm:text-center'>
+            <p className=''>
+              Với sự hỗ trợ nhiệt tình, và làm việc chuyên nghiệp từ đội ngũ trẻ. Những đánh giá từ khách hàng là minh
+              chứng cho sự tiến bộ cũng như chuyên nghiệp của chúng tôi.
+            </p>
+          </div>
         </div>
 
         <Slider {...feedbackSetting} autoplay className='pb-[50px]'>
@@ -203,87 +360,6 @@ const Home = () => {
               className='w-[430px] h-[390px] object-cover'
             />
           </div>
-        </Slider>
-      </div>
-
-      <div className='flex flex-col justify-center gap-5 mt-[100px] p-5 pb-[100px]'>
-        <div className='max-sm:flex-col lg:flex items-center justify-between mb-[60px]'>
-          <div className='max-sm:flex-col max-sm:text-center lg:flex items-center gap-4 p-5'>
-            <div className='max-sm:hidden w-[90px] h-[3px] bg-secondary-foreground rounded-md line__1'></div>
-            <div className='max-sm:hidden w-[35px] h-[35px] rounded-[50%] bg-primary animate-bounce'></div>
-            <h1 className='text-3xl lg:text-[3rem] font-normal text-secondary-foreground'>Thống kê</h1>
-          </div>
-          <div className='border-l-[2px] border-primary p-5 lg:w-[50%] max-sm:text-center'>
-            <p className=''>
-              Với kinh nghiệm nhiều năm trong lĩnh vực này, chúng tôi tự tin mang lại những điều tốt nhất cho khách hàng
-            </p>
-          </div>
-        </div>
-        <div className='max-sm:flex-col flex gap-3 items-center justify-center mt-[50px]'>
-          <div className='w-[300px] h-[300px] rounded-[50%] border-[3px] border-primary flex flex-col justify-center items-center hover:animate-pulse'>
-            <h1 className='font-bold text-[4rem] text-primary'>259,752</h1>
-            <p className='font-semibold text-[20px]'>Lượt truy cập</p>
-          </div>
-          <div className='max-sm:hidden w-[150px] h-[3px] bg-primary rounded-md'></div>
-          <div className='w-[300px] h-[300px] rounded-[50%] border-[3px] border-primary flex flex-col justify-center items-center hover:animate-pulse'>
-            <h1 className='font-bold text-[4rem] text-primary'>99,782</h1>
-            <p className='font-semibold text-[20px]'>Đơn hàng thành công</p>
-          </div>
-          <div className='max-sm:hidden w-[150px] h-[3px] bg-primary rounded-md'></div>
-          <div className='w-[300px] h-[300px] rounded-[50%] border-[3px] border-primary flex flex-col justify-center items-center hover:animate-pulse'>
-            <h1 className='font-bold text-[4rem] text-primary'>89,636</h1>
-            <p className='font-semibold text-[20px]'>Lượt đánh giá 5*</p>
-          </div>
-        </div>
-      </div>
-
-      <AuroraBackground>
-        <div className='max-sm:flex-col max-sm:text-center flex items-center justify-between mt-[50px] pb-[100px] pt-[100px]'>
-          <div className='flex flex-col items-start gap-3 p-5 flex-1 w-max'>
-            <h1 className='text-[2rem] font-bold lg:text-[4rem]'>Đừng Ngần Ngại</h1>
-            <h1 className='text-[2rem] font-bold lg:text-[4rem]'>Số Hoá Doanh Nghiệp</h1>
-            <h1 className='text-[4rem] font-extrabold lg:text-[5rem] text-primary text-start animate-pulse'>Của Bạn</h1>
-          </div>
-          <div className='w-full lg:w-[40%] border-l-2 border-primary flex-shrink-0 p-5 text-secondary-foreground'>
-            <p>
-              Với kinh nghiệm hơn 6 năm cung cấp dịch vụ. 9AM Media cam kết đem đến khách hàng chất lượng dịch vụ tốt
-              nhất.
-            </p>
-            <div className='flex items-center gap-3 mt-[20px] slide__btn-more cursor-pointer'>
-              <div className='w-[90px] h-[3px] bg-secondary-foreground rounded-md line__1'></div>
-              <div className='w-[15px] h-[15px] rounded-[50%] bg-primary animate-bounce'></div>
-              <span className='font-medium text-lg'>Bắt đầu cùng chúng tôi!</span>
-            </div>
-          </div>
-        </div>
-      </AuroraBackground>
-
-      <div className='flex flex-col gap-5 relative pt-[100px] pb-[50px]'>
-        <div className='max-sm:flex-col lg:flex items-center justify-between mb-[60px]'>
-          <div className='max-sm:flex-col max-sm:text-center lg:flex items-center gap-4 p-5'>
-            <div className='max-sm:hidden w-[90px] h-[3px] bg-secondary-foreground rounded-md line__1'></div>
-            <div className='max-sm:hidden w-[35px] h-[35px] rounded-[50%] bg-primary animate-bounce'></div>
-            <h1 className='text-3xl lg:text-[3rem] font-normal text-secondary-foreground'>Dự Án</h1>
-            <h1 className='text-[3rem] lg:text-[5rem] font-bold text-primary'>Nổi bật</h1>
-          </div>
-          <div className='border-l-[2px] border-primary p-5 lg:w-[50%] max-sm:text-center'>
-            <p className=''>
-              Với kinh nghiệm nhiều năm trong lĩnh vực này, chúng tôi tự tin mang lại những điều tốt nhất cho khách hàng
-            </p>
-          </div>
-        </div>
-        <Slider {...settings} className='min-h-[350px] p-5 pb-[50px] mt-[100px]' autoplay>
-          {Categories &&
-            Categories.map((category) => {
-              return (
-                <BentoGridItem
-                  title={category.name}
-                  thumbnail={category.thumbnail}
-                  description={category.description}
-                  key={category._id}
-                />
-              )
-            })}
         </Slider>
       </div>
     </div>

@@ -1,4 +1,12 @@
-html, body {
+@import url(../index.css);
+html,
+body {
   font-family: 'Roboto Flex', sans-serif;
 }
 
+.ant-input-outlined:hover {
+  border-color: red !important;
+}
+.ant-input-outlined:focus-within {
+  border-color: red !important;
+}

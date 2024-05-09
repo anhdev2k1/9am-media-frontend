@@ -5,7 +5,7 @@ import { useTheme } from '@/contexts/theme-provider'
 import { Moon, Sun } from 'lucide-react'
 import useWindowDimension from '@/hooks/useWindowDimesion'
 import { useEffect, useState } from 'react'
-
+import logo from '@/assets/images/logo.png'
 type NavbarLinks = {
   title: string
   path: string
@@ -61,8 +61,9 @@ const Navbar = () => {
     <div
       className={`w-[100vw] h-[90px] pl-5 pr-5 flex items-center justify-between bg-primary fixed top-0 left-0 z-[1]`}
     >
-      <Link to='/home' className='text-xl font-medium text-secondary-foreground'>
-        9AM Media.
+      <Link to='/home' className='text-xl font-medium text-secondary-foreground flex items-center gap-3'>
+        <img src={logo} alt='' className='w-[40px]' />
+        <span className='font-semiboldt'>9AM Media</span>
       </Link>
       <div className='lg:hidden' onClick={() => setOpenSidebar(!openSidebar)}>
         <svg width='25' height='25' viewBox='0 0 15 15' fill='none' xmlns='http://www.w3.org/2000/svg'>
@@ -117,7 +118,7 @@ const Navbar = () => {
         })}
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <Button variant='outline' size='icon'>
+            <Button size='icon'>
               <Sun className='h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0' />
               <Moon className='absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100' />
               <span className='sr-only'>Toggle theme</span>

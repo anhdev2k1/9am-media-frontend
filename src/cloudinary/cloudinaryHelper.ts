@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import axios from 'axios'
 import { CLOUD_NAME, CLOUD_FOLDER_UPLOAD, CLOUD_KEY_PRESET } from './cloudinaryConfig'
+import Toast from '@/admin/components/Toast'
 
 export const uploadToCloudinary = ({ file, fileType, successCallback, failureCallback } : any) => {
   const url = `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/${fileType}/upload`
@@ -17,6 +18,7 @@ export const uploadToCloudinary = ({ file, fileType, successCallback, failureCal
     .then((response) => successCallback(response.data))
     .catch((err) => {
       const error = new Error(err)
+      Toast({ message: err?.response?.data?.error?.message, position: 'top-right' })
       failureCallback({ event: error })
     })
 }
