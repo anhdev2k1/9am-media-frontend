@@ -1,21 +1,30 @@
 import logo from '@/assets/images/logo.png'
+import iconSmile from '@/assets/images/icon-smile.svg'
+
 const Footer = () => {
   return (
-    <footer className='flex items-center gap-5 justify-between p-5 pt-[100px] pb-[100px] flex-wrap'>
-      <div className='flex flex-col gap-5 w-[20%]'>
+    <footer className='relative flex gap-5 justify-between pl-10 pr-10 pt-[100px] pb-[100px] flex-wrap bg-black z-10'>
+      <div className='absolute top-[100px] z-[-1] left-10'>
+        <h1 className='text-[200px] max-sm:text-[60px] font-[900] opacity-15 z-[-1]'>9AM MEDIA</h1>
+      </div>
+      <div className='absolute bottom-[30px] right-[120px]'>
+        <img src={iconSmile} alt='icon' className='w-[100px] opacity-20 ' />
+      </div>
+      <div className='absolute top-[30px] left-[120px]'>
+        <img src={iconSmile} alt='icon' className='w-[100px] opacity-20 ' />
+      </div>
+      <div className='flex flex-col gap-5 w-[20%] max-sm:w-full'>
         <img src={logo} alt='' className='w-[50px]' />
-        <span>9AM MEDIA CO., LTD</span>
-        <span className='text-[14px]'>
+        <span className='font-semibold'>9AM MEDIA CO., LTD</span>
+        <span className='text-[14px] font-semibold '>
           Tầng 3A, 29 Yên Bái, Phường Hải Châu I, Quận Hải Châu, Thành phố Đà Nẵng, Việt Nam
         </span>
-        <span>Mã số thuế: 0402217718</span>
+        <span className='font-semibold'>Mã số thuế: 0402217718</span>
       </div>
 
       <div className='flex flex-col gap-5'>
         <div className='flex items-center gap-2'>
-          <div className='w-[50px] h-[3px] bg-secondary-foreground rounded-md line__1'></div>
-          <div className='w-[15px] h-[15px] rounded-[50%] bg-primary animate-bounce'></div>
-          <span className='text-xl font-semibold'>Hỗ trợ</span>
+          <span className='text-xl font-bold uppercase'>Hỗ trợ</span>
         </div>
         <div className='flex items-center gap-2'>
           <svg width='15' height='15' viewBox='0 0 15 15' fill='none' xmlns='http://www.w3.org/2000/svg'>
@@ -39,12 +48,17 @@ const Footer = () => {
           </svg>
           <span>lienhe@9am.media</span>
         </div>
+        <div className='w-[250px] h-max bg-white p-3 flex items-center rounded-[10px]'>
+          <input
+            type='text'
+            className='w-full h-[30px] outline-none bg-none text-black'
+            placeholder='Nhập email vào đây...'
+          />
+        </div>
       </div>
       <div className='flex flex-col gap-5'>
         <div className='flex items-center gap-2'>
-          <div className='w-[50px] h-[3px] bg-secondary-foreground rounded-md line__1'></div>
-          <div className='w-[15px] h-[15px] rounded-[50%] bg-primary animate-bounce'></div>
-          <span className='text-xl font-semibold'>Dịch vụ</span>
+          <span className='text-xl font-bold uppercase'>Dịch vụ</span>
         </div>
         <span>Dịch vụ Facebook</span>
         <span>Dịch vụ Tiktok</span>

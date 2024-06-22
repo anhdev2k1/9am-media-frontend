@@ -15,7 +15,7 @@ const NavbarAdmin = () => {
 
   const currentUser = queryClient.getQueryData(['me'])
   return (
-    <div className='flex items-center justify-between p-3 h-[90px] bg-primary'>
+    <div className='flex items-center justify-between p-3 h-[90px] bg-[#ab3638]'>
       <Link to='/admin/categories'>9AM Media.</Link>
       <div className='flex items-center gap-5'>
         <Link

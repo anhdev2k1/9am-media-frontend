@@ -1,0 +1,12 @@
+.detail-content{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  p{
+    color: black;
+    font-size: 20px;
+    img{
+      border-radius: 30px;
+    }
+  }
+}

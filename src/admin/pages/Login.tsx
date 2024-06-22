@@ -6,6 +6,7 @@ import { authApi } from '@/apis/auth-api'
 import { useMutation } from '@tanstack/react-query'
 import { useNavigate } from 'react-router-dom'
 import Toast from '../components/Toast'
+import { Input } from 'antd'
 const schema = z.object({
   email: z.string().email(),
   password: z.string().min(8, 'Mật khẩu tối đa phải là 8 ký tự')
@@ -58,7 +59,7 @@ const Login = () => {
           <label htmlFor='password' title='must be longer than 8' className='text-base font-medium text-white'>
             Mật khẩu
           </label>
-          <input
+          <Input
             id='password'
             type='password'
             {...register('password')}
@@ -69,7 +70,7 @@ const Login = () => {
           <input
             type='submit'
             className='pt-2 pb-2 pl-5 pr-5 bg-primary text-white rounded-md mt-3 cursor-pointer'
-            value={status ? 'Đợi xíu...' : 'Đăng nhập'}
+            value={status === 'pending' ? 'Đợi xíu...' : 'Đăng nhập'}
           />
         </form>
       </div>

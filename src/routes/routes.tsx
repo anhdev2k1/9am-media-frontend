@@ -1,6 +1,10 @@
 import Login from '@/admin/pages/Login'
+import ListBlog from '@/admin/pages/blog-page/ListBlog'
+import CreateService from '@/admin/pages/services-page/CreateService'
 import ServiceDetail from '@/admin/pages/services-page/ServiceDetail'
 import Services from '@/admin/pages/services-page/Services'
+import ListService from '@/admin/pages/services-page/ServicesList'
+import Loading from '@/components/Loading/Loading'
 import ProtectedLayout from '@/layouts/ProtectedLayout'
 import Notfound from '@/pages/404/Notfound'
 import Detail from '@/pages/Detail/Detail'
@@ -11,12 +15,16 @@ const MainLayout = React.lazy(() => import('@/layouts/MainLayout'))
 
 const HomePage = React.lazy(() => import('@/pages/Home/Home'))
 const ListPage = React.lazy(() => import('@/pages/List/List'))
+const AboutUsPage = React.lazy(() => import('@/pages/AboutUs/AboutUs'))
+const DetailPage = React.lazy(() => import('@/pages/Detail/Detail'))
+const ContactUsPage = React.lazy(() => import('@/pages/ContactUs/ContactUs'))
+
 export const routes = createBrowserRouter([
   {
     id: 'root',
     path: '/',
     index: true,
-    element: <Navigate to='home' />,
+    element: <Navigate to='trang-chu' />,
     errorElement: <Notfound />
   },
   {
@@ -24,42 +32,66 @@ export const routes = createBrowserRouter([
     element: <MainLayout />,
     children: [
       {
-        path: 'home',
+        path: '/trang-chu',
         element: (
-          <Suspense>
+          <Suspense fallback={<Loading />}>
             <HomePage />
           </Suspense>
         )
       },
       {
-        path: 'services',
+        path: '/gioi-thieu',
         element: (
-          <Suspense>
+          <Suspense fallback={<Loading />}>
+            <AboutUsPage />
+          </Suspense>
+        )
+      },
+      {
+        path: '/lien-he',
+        element: (
+          <Suspense fallback={<Loading />}>
+            <ContactUsPage />
+          </Suspense>
+        )
+      },
+      {
+        path: 'dich-vu',
+        element: (
+          <Suspense fallback={<Loading />}>
             <ListPage />
           </Suspense>
         )
       },
       {
-        path: 'projects',
+        path: 'dich-vu/:service_id',
         element: (
-          <Suspense>
+          <Suspense fallback={<Loading />}>
             <ListPage />
           </Suspense>
         )
       },
       {
-        path: 'projects/:project_slug/:detail_slug',
+        path: 'dich-vu/:service_id/:detail',
         element: (
-          <Suspense>
-            <Detail />
+          <Suspense fallback={<Loading />}>
+            <DetailPage />
           </Suspense>
         )
       },
       {
-        path: 'services/:service_slug/:detail_slug',
+        path: 'du-an',
         element: (
-          <Suspense>
-            <Detail />
+          <Suspense fallback={<Loading />}>
+            <ListPage />
+          </Suspense>
+        )
+      },
+      {
+        path: 'du-an/:project_slug',
+        element: (
+          <Suspense fallback={<Loading />}>
+            <DetailPage />
           </Suspense>
         )
       }
@@ -87,15 +119,23 @@ export const routes = createBrowserRouter([
         )
       },
       {
-        path: 'blogs',
+        path: 'services/:service_slug',
         element: (
           <Suspense>
-            <Services />
+            <ListService />
           </Suspense>
         )
       },
       {
-        path: 'services/:service_slug',
+        path: 'services/:service_slug/create',
+        element: (
+          <Suspense>
+            <CreateService />
+          </Suspense>
+        )
+      },
+      {
+        path: 'services/:service_slug/:service_detail',
         element: (
           <Suspense>
             <ServiceDetail />
@@ -103,7 +143,23 @@ export const routes = createBrowserRouter([
         )
       },
       {
-        path: 'blogs/:blog_slug',
+        path: 'blogs',
+        element: (
+          <Suspense>
+            <ListBlog />
+          </Suspense>
+        )
+      },
+      {
+        path: 'blogs/create',
+        element: (
+          <Suspense>
+            <CreateService />
+          </Suspense>
+        )
+      },
+      {
+        path: 'blogs/:blog_detail',
         element: (
           <Suspense>
             <ServiceDetail />

@@ -17,7 +17,10 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        play: ['Poppins', 'sans-serif']
+        play: ['Montserrat', 'sans-serif']
+      },
+      backgroundColor: {
+        primary: '#efefef'
       },
       colors: {
         border: 'hsl(var(--border))',
@@ -87,13 +90,60 @@ module.exports = {
           to: {
             backgroundPosition: '350% 50%, 350% 50%'
           }
+        },
+        sayHi: {
+          from: {
+            transform: 'rotateX(20deg)'
+          },
+          to: {
+            transform: 'rotateX(-20deg)'
+          }
+        },
+        wave: {
+          '0%': {
+            transform: "rotate(0.0deg)"
+        },
+        
+        "10%": {
+            transform: "rotate(14.0deg)"
+        },
+        "20%": {
+            transform: "rotate(-8.0deg)"
+        },
+        "30%": {
+            transform: "rotate(14.0deg)"
+        },
+        "40%": {
+            transform: "rotate(-4.0deg)"
+        },
+        "50%": {
+            transform: "rotate(10.0deg)"
+        },
+        "60%": {
+            transform: "rotate(0.0deg)"
+        },
+        "100%": {
+            transform: "rotate(0.0deg)"
+        },
+        }
+      },
+      scaleAnimate: {
+        "50%": {
+          transform: "scale(.95)"
+        },
+      
+      "100%": {
+          transform: "scale(1)"
         }
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
         moveTop: 'moveTop 3s ease-out alternate infinite',
-        aurora: 'aurora 60s linear infinite'
+        aurora: 'aurora 60s linear infinite',
+        sayHi: 'sayHi 5s ease-out alternate infinite',
+        wave: 'wave 2.5s infinite',
+        scaleAnimate: 'scaleAnimate 1s infinite'
       }
     }
   },

@@ -76,7 +76,7 @@ export const formats = [
 
 // Quill Toolbar component
 export const QuillToolbar: React.FC = () => (
-  <div id='toolbar'>
+  <div id='toolbar' className='w-[100%]'>
     <span className='ql-formats'>
       <select className='ql-font' defaultValue='arial'>
         <option value='arial'>Arial</option>

@@ -16,8 +16,8 @@ export const serviceApi = {
   findOne: (service_slug: string): Promise<IResponse<IServiceProvide>> => {
     return axiosClient.get(`/service/${service_slug}/slug`)
   },
-  updateService: (service_id: string): Promise<IResponse<IServiceProvide>> => {
-    return axiosClient.patch(`/service/${service_id}`)
+  updateService: (service_id: string, serviceData: any): Promise<IResponse<IServiceProvide>> => {
+    return axiosClient.patch(`/service/${service_id}`, serviceData)
   },
   deleteService: (service_id: string): Promise<IResponse<IServiceProvide>> => {
     return axiosClient.delete(`/service/${service_id}`)

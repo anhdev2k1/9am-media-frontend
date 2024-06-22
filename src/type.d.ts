@@ -33,7 +33,7 @@ export interface IUserPayload extends IUser {
 export interface IBlog {
   _id?: string
   thumbnail?: string
-  title: string
+  name: string
   description: string
   content: string
   slug: string
@@ -43,7 +43,7 @@ export interface IBlog {
 export interface IServiceProvide {
   _id?: string
   name: string
-  thumnail?: string
+  thumbnail?: string
   cover?: string
   description?: string
   content: string
