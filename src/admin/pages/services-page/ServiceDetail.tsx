@@ -5,7 +5,7 @@ import 'react-quill/dist/quill.snow.css'
 import EditorToolbar, { modules, formats } from '@/admin/components/EditToolbar'
 import { Form, Input, Upload } from 'antd'
 import { useLocation, useNavigate } from 'react-router-dom'
-import { useMutation, useQuery } from '@tanstack/react-query'
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { blogApi } from '@/apis/blogApi-api'
 import { serviceApi } from '@/apis/service-api'
 import TextArea from 'antd/es/input/TextArea'
@@ -33,7 +33,7 @@ const ServiceDetail = () => {
     enabled: queryKey.includes('services') ? !!location[4] : !!location[3]
   })
   const quillRef = useRef<any>(null)
-
+  const queryClient = useQueryClient()
   const handleMutation = async (data: any) => {
     if (queryKey.includes('services')) {
       return serviceApi.updateService(Detail?.metadata?._id, data)
@@ -44,7 +44,8 @@ const ServiceDetail = () => {
   const { mutate: Update, error } = useMutation({ mutationFn: handleMutation })
 
   const handleUpdate = async (values: any) => {
-    Update({ ...values, content: value })
+    await Update({ ...values, content: value })
+    queryClient.invalidateQueries({ queryKey: ['service-list'] })
     setValue('')
     navigate(-1)
   }
@@ -151,7 +152,7 @@ const ServiceDetail = () => {
             formats={formats}
             ref={quillRef}
           />
-          <Button type='submit' className='w-[70%] fixed bottom-5 left-1/2 -translate-x-1/2'>
+          <Button type='submit' className='w-[70%] fixed bottom-5 left-1/2 -translate-x-1/2 rounded-[8px] bg-black '>
             {status === 'pending' ? (
               <svg
                 width='15'

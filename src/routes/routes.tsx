@@ -7,7 +7,6 @@ import ListService from '@/admin/pages/services-page/ServicesList'
 import Loading from '@/components/Loading/Loading'
 import ProtectedLayout from '@/layouts/ProtectedLayout'
 import Notfound from '@/pages/404/Notfound'
-import Detail from '@/pages/Detail/Detail'
 import React, { Suspense } from 'react'
 import { Navigate, createBrowserRouter } from 'react-router-dom'
 

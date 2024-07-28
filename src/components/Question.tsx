@@ -4,11 +4,11 @@ const Question = () => {
   return (
     <div className='w-full min-h-[350px] pt-[100px] bg-primary pb-[100px]'>
       <div className='relative w-full h-max'>
-        <h1 className='max-w-[70%] text-[50px] font-[800] text-center m-auto uppercase text-primary '>
+        <h1 className='lg:max-w-[70%] text-[50px] font-[800] text-center m-auto uppercase text-primary'>
           Câu hỏi thường gặp
         </h1>
 
-        <div className='absolute bottom-[-40px] right-[350px] w-[100px] h-[100px] z-10'>
+        <div className='absolute bottom-[-40px] right-[350px] w-[100px] h-[100px] z-10 max-sm:bottom-[-70px]'>
           <img src={iconSmile} alt='' />
         </div>
       </div>

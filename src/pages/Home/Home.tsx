@@ -369,7 +369,7 @@ const Home = () => {
         </div>
 
         <div
-          className='grid grid-cols-4 gap-10 pt-[100px] m-auto pb-[100px] '
+          className='grid grid-cols-4 max-sm:grid-cols-2 gap-10 pt-[100px] m-auto pb-[100px] '
           data-aos='fade-up'
           data-aos-duration='2500'
         >

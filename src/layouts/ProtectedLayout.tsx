@@ -6,8 +6,6 @@ import { Navigate, Outlet } from 'react-router-dom'
 const ProtectedLayout = () => {
   const { data: CurrentUser, isFetching } = useQuery({ queryKey: ['me'], queryFn: authApi.getMe })
 
-  console.log(CurrentUser)
-
   return !isFetching && !CurrentUser?.metadata.email && !CurrentUser ? (
     <Navigate to='/login' />
   ) : (

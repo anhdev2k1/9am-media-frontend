@@ -8,7 +8,7 @@ const Hero = () => {
     <div className='w-full min-h-[450px] bg-primary pt-[100px] pb-[100px]'>
       <div className='relative max-w-[1200px] m-auto h-max'>
         <h1
-          className='max-w-[70%] max-sm:w-full max-sm:text-[30px] text-[50px] font-[900] text-center m-auto uppercase text-black '
+          className='lg:max-w-[70%] max-sm:text-[30px] text-[50px] font-[900] text-center m-auto uppercase text-black '
           data-aos='fade-right'
           data-aos-duration='1000'
         >

@@ -14,8 +14,11 @@ import { serviceApi } from '@/apis/service-api'
 import { blogApi } from '@/apis/blogApi-api'
 import { Button } from '@/components/ui/button'
 import Toast from '@/admin/components/Toast'
+import { StyledEditor } from '@/admin/components/editor'
+import { useThemeToken } from '@/theme/useThemeToken'
 
 const CreateService = () => {
+  const token = useThemeToken()
   const [value, setValue] = useState('')
   const location = useLocation().pathname.trim().split('/')
   const navigate = useNavigate()
@@ -95,19 +98,21 @@ const CreateService = () => {
             </button>
           </Upload>
         </Form.Item>
+        <StyledEditor $token={token}>
+          <EditorToolbar />
 
-        <EditorToolbar />
+          <ReactQuill
+            theme='snow'
+            value={value}
+            onChange={setValue}
+            className='w-[100%] min-h-[200px] bg-white text-black'
+            modules={modules}
+            formats={formats}
+            ref={quillRef}
+          />
+        </StyledEditor>
 
-        <ReactQuill
-          theme='snow'
-          value={value}
-          onChange={setValue}
-          className='w-[100%] bg-white text-black'
-          modules={modules}
-          formats={formats}
-          ref={quillRef}
-        />
-        <Button type='submit' className='w-[70%] fixed bottom-5 left-1/2 -translate-x-1/2'>
+        <Button type='submit' className='w-[70%] fixed bottom-5 left-1/2 -translate-x-1/2 bg-black rounded-[8px]'>
           {status === 'pending' ? (
             <svg
               width='15'
