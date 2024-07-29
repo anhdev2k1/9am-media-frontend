@@ -377,7 +377,7 @@ const Home = () => {
             return (
               <div className='bg-white p-5 rounded-[30px] flex gap-4 justify-between group hover:text-primary overflow-hidden transition-all'>
                 <img
-                  src={'kh_' + item + '.jpeg'}
+                  src={'/images/khach-hang/kh_' + item + '.jpeg'}
                   alt={'kh' + item}
                   key={item}
                   className='rounded-[30px] w-[150px] h-[150px] scale-[1] group-hover:scale-[1.1] transition-transform'

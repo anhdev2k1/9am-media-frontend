@@ -12,7 +12,7 @@ const AboutUs = () => {
           loop
           className='max-sm:h-[50vh] h-[100vh] w-full object-cover object-center block'
         >
-          <source src='/video_2.mp4' />
+          <source src='/images/video_2.mp4' />
         </video>
       </section>
       <section className='mt-[100px] relative p-5 max-sm:text-center'>
