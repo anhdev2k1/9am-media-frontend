@@ -1,7 +1,6 @@
-import iconSmile from '@/assets/images/icon-smile.svg'
+import bannerAbout from '@/assets/images/banner-about.png'
 import iconHeart from '@/assets/images/icon-heart.svg'
 import { CardBody, CardContainer, CardItem } from '@/components/Card3D'
-import bannerAbout from '@/assets/images/banner-about.png'
 const AboutUs = () => {
   return (
     <div className='w-full'>

@@ -47,7 +47,9 @@ const Detail = () => {
             <span className='text-[20px] font-bold'>Trở về</span>
           </div>
           <h1 className='text-[80px] max-sm:text-[50px] text-primary font-[900] uppercase text-center'>Chi tiết</h1>
-          <h2 className='text-[40px] max-sm:text-[30px] text-black font-extrabold text-center'>{Detail?.metadata.name}</h2>
+          <h2 className='text-[40px] max-sm:text-[30px] text-black font-extrabold text-center'>
+            {Detail?.metadata.name}
+          </h2>
         </div>
       </div>
 

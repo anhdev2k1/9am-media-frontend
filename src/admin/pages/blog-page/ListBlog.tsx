@@ -15,7 +15,6 @@ const ListBlog = () => {
   })
   const navigate = useNavigate()
   const [form] = Form.useForm()
-  const [currentBlog, setCurrentBlog] = useState<any>()
   const {
     data: ListBlog,
     isLoading,
@@ -127,7 +126,6 @@ const ListBlog = () => {
             onRow={(record) => {
               return {
                 onClick: () => {
-                  setCurrentBlog(record)
                   form.setFieldsValue(record)
                 }
               }

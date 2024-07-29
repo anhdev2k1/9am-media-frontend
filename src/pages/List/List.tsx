@@ -30,7 +30,6 @@ const List = () => {
   const {
     data: ListService,
     isLoading: ServicesLoading,
-    status,
     refetch
   } = useQuery({
     queryKey: ['list-service'],

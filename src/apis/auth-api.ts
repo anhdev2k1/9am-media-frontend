@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import axiosClient from '@/interceptors/interceptor'
 import { IResponse, IUser, IUserPayload } from '@/type'
 

@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const StyledUpload = styled.div<{ $thumbnail?: boolean }>`
   .ant-upload {
@@ -8,7 +8,7 @@ export const StyledUpload = styled.div<{ $thumbnail?: boolean }>`
     display: ${(props) => (props.$thumbnail ? 'flex' : 'block')};
     flex-wrap: wrap;
   }
-`;
+`
 
 export const StyledUploadAvatar = styled.div`
   transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
@@ -16,7 +16,7 @@ export const StyledUploadAvatar = styled.div`
   .ant-upload-select {
     border: none !important;
   }
-`;
+`
 
 export const StyledUploadBox = styled.div`
   .ant-upload {
@@ -25,4 +25,4 @@ export const StyledUploadBox = styled.div`
   .ant-upload-list {
     display: none;
   }
-`;
+`

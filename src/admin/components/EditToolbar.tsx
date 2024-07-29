@@ -43,7 +43,7 @@ export const modules = {
     handlers: {
       // undo: undoChange,
       // redo: redoChange
-    },
+    }
   },
   history: {
     delay: 500,

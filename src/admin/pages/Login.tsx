@@ -9,7 +9,7 @@ import Toast from '../components/Toast'
 
 const Login = () => {
   const navigate = useNavigate()
-  const { mutate: CreateAdmin, status } = useMutation({
+  const { mutate: CreateAdmin } = useMutation({
     mutationFn: authApi.login,
     onSuccess(data) {
       if (data.status === 'success') {

@@ -11,13 +11,19 @@ const Banner = (props: BannerProps) => {
   return (
     <div data-aos='fade-right' data-aos-duration='1000' data-aos-easing='linear' className='p-2'>
       <div className='flex flex-col items-center pt-[5%] relative text-center'>
-        <h1 className='text-[3rem] lg:text-[4rem] font-extrabold text-secondary-foreground font-play'>{props.title1}</h1>
+        <h1 className='text-[3rem] lg:text-[4rem] font-extrabold text-secondary-foreground font-play'>
+          {props.title1}
+        </h1>
         <h1 className='text-[3rem] lg:text-[4rem] font-extrabold text-primary font-play'>{props.title2}</h1>
-        <h1 className='text-[3rem] lg:text-[4rem] font-extrabold text-secondary-foreground font-play'>{props.title3}</h1>
+        <h1 className='text-[3rem] lg:text-[4rem] font-extrabold text-secondary-foreground font-play'>
+          {props.title3}
+        </h1>
         {/* <div className='w-[450px] h-[450px] absolute opacity-70 rounded-[50%] bg-primary z-[-1] right-[300px] animate-moveTop'></div> */}
       </div>
       <div className='flex-col text-center w-full lg:flex lg:items-center lg:justify-center mt-[40px] gap-10 lg:pr-[50px]'>
-        <p className='max-sm:text-[15px] w-full lg:max-w-[50%] text-lg text-secondary-foreground font-bold font-play'>{props.desc}</p>
+        <p className='max-sm:text-[15px] w-full lg:max-w-[50%] text-lg text-secondary-foreground font-bold font-play'>
+          {props.desc}
+        </p>
         <div
           className='max-sm:mt-[50px] max-sm:m-auto w-[220px] min-h-[55px] rounded-[40px] flex items-center bg-secondary pl-2 pt-2 pb-2 gap-5 cursor-pointer'
           onClick={() => props.setBanner((prev) => (prev === 2 ? prev - 1 : prev + 1))}

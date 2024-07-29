@@ -1,6 +1,4 @@
 import { Upload as AntdUpload, Typography } from 'antd'
-import { ItemRender } from 'antd/es/upload/interface'
-
 import { StyledUpload } from './style'
 import UploadIllustration from './upload-illustration'
 

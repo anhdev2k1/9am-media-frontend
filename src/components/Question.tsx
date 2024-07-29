@@ -25,7 +25,9 @@ const Question = () => {
         </AccordionItem>
 
         <AccordionItem value='item-2' className='p-5'>
-          <AccordionTrigger className='text-[25px] font-bold'>TÔI CÓ THỂ NHẬN THÊM CÁC CHÍNH SÁCH HẬU MÃI NÀO?</AccordionTrigger>
+          <AccordionTrigger className='text-[25px] font-bold'>
+            TÔI CÓ THỂ NHẬN THÊM CÁC CHÍNH SÁCH HẬU MÃI NÀO?
+          </AccordionTrigger>
           <AccordionContent className='h-max text-[16px]'>
             Đối với giải pháp dịch vụ bên 9AM Media, khách hàng sẽ ghi nhận rõ hơn về hiệu quả tích cực cả việc đổi mới
             khi đồng hành cùng 9AM Media với gói Marketing đồng hành. Giải pháp đồng hành Marketing và Sản xuất Media
@@ -34,7 +36,9 @@ const Question = () => {
         </AccordionItem>
 
         <AccordionItem value='item-3' className='p-5'>
-          <AccordionTrigger className='text-[25px] font-bold'>9AM MEDIA KHÁC BIỆT SO VỚI ĐƠN VỊ KHÁC NHƯ THẾ NÀO?</AccordionTrigger>
+          <AccordionTrigger className='text-[25px] font-bold'>
+            9AM MEDIA KHÁC BIỆT SO VỚI ĐƠN VỊ KHÁC NHƯ THẾ NÀO?
+          </AccordionTrigger>
           <AccordionContent className='h-max text-[16px]'>
             9AM Media luôn tự tin với ưu điểm vượt trội đến từ những thiết kế tốt của mình, nhờ việc đảm bảo được sáu
             khía cạnh: <br />
