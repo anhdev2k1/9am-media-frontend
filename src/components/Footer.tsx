@@ -1,5 +1,6 @@
 import logo from '@/assets/images/logo.png'
 import iconSmile from '@/assets/images/icon-smile.svg'
+import { Link } from 'react-router-dom'
 
 const Footer = () => {
   return (
@@ -35,7 +36,7 @@ const Footer = () => {
               clip-rule='evenodd'
             ></path>
           </svg>
-          <span>Tel: 070.336.3333</span>
+          <a href='tel:0703363333'>Tel: 070.336.3333</a>
         </div>
         <div className='flex items-center gap-2'>
           <svg width='15' height='15' viewBox='0 0 15 15' fill='none' xmlns='http://www.w3.org/2000/svg'>
@@ -46,7 +47,7 @@ const Footer = () => {
               clip-rule='evenodd'
             ></path>
           </svg>
-          <span>lienhe@9am.media</span>
+          <a href='mailto:lienhe@9am.media'>lienhe@9am.media</a>
         </div>
         <div className='w-[250px] h-max bg-white p-3 flex items-center rounded-[10px]'>
           <input
