@@ -1,17 +1,11 @@
 import { blogApi } from '@/apis/blogApi-api'
 import { categoryApi } from '@/apis/category-api'
-import icon1 from '@/assets/images/icon-1.png'
-import icon3 from '@/assets/images/icon-3.png'
-import iconHand from '@/assets/images/icon-hand.svg'
-import iconHeart from '@/assets/images/icon-heart.svg'
-import iconSmile from '@/assets/images/icon-smile.svg'
-import likeIcon from '@/assets/images/like.png'
 import noImage from '@/assets/images/no-image.png'
-import CustomButton from '@/components/Button'
 import { CardBody, CardContainer, CardItem } from '@/components/Card3D'
+import { Button } from '@/components/ui/button'
 import { useQuery } from '@tanstack/react-query'
-import './home.scss'
 import { Link } from 'react-router-dom'
+import './home.scss'
 const useFetch = () => {
   const { data: ListCategory, isLoading: CategoryLoading } = useQuery({
     queryKey: ['list-category'],
@@ -44,7 +38,7 @@ const Home = () => {
           loop
           className='max-sm:h-[40vh] lg:h-[100vh] w-full object-cover object-center block'
         >
-          <source src='https://designmarket.vn/wp-content/uploads/2023/10/A_HOME_BANNER_V1.mp4' />
+          <source src='/images/thumb_video2.mp4' />
         </video>
       </section>
 
@@ -57,20 +51,6 @@ const Home = () => {
           >
             Chào bạn
           </h1>
-          <div className='max-sm:h-[50px] w-[50px] top-[90px] max-sm:right-[-30px] lg:w-[96px] h-[96px] rounded-[20px]  bg-primary flex items-center justify-center absolute lg:top-[40px] right-[-70px] rotate-[20deg] shadow-md z-10'>
-            <img
-              src={iconHand}
-              alt='icon-hand'
-              className='max-sm:h-[30px] w-[30px] lg:w-[70px] lg:h-[70px] animate-wave'
-            />
-          </div>
-          <div
-            className='max-sm:top-[50px] max-sm:left-0 absolute lg:bottom-[-20px] lg:right-[-140px]'
-            data-aos='fade-left'
-            data-aos-duration='1500'
-          >
-            <img src={iconSmile} alt='icon-smile' className='max-sm:w-[70px]' />
-          </div>
         </div>
         <p
           className='max-sm:max-w-full max-sm:text-[20px] lg:max-w-[70%] text-[25px] font-extrabold uppercase text-primary m-auto text-center mt-[50px]'
@@ -80,18 +60,15 @@ const Home = () => {
           Cùng khám phá chuỗi dịch vụ truyền thông sáng tạo và công nghệ đa phương tiện của chúng tôi.
         </p>
 
-        <div className='relative w-[50%] m-auto min-h-[300px] mt-[100px]'>
-          <img
-            src={icon1}
-            alt=''
-            className='absolute max-sm:top-[200px] left-0 w-[70px] lg:top-[50%] lg:left-[50px] animate-bounce'
-          />
-          <img src={icon3} alt='' className='absolute max-sm:w-[80px] bottom-[-100px] right-0 animate-bounce' />
-
-          <CustomButton path='gioi-thieu' title='Xem thêm' />
+        <div className='relative w-[50%] m-auto min-h-[300px] mt-[100px] flex justify-center'>
+          <Button className='w-[170px] h-[56px] bg-[#ab3638] rounded-[100px]'>
+            <Link to='gioi-thieu' className='text-[1.1rem]'>
+              Xem thêm
+            </Link>
+          </Button>
         </div>
       </section>
-      <section className='mt-[100px] w-full min-h-[300px] relative p-5'>
+      <section className='mt-[50px] w-full min-h-[300px] relative p-5'>
         <h1
           className='max-sm:max-w-full max-sm:text-[20px] break-words lg:max-w-[70%] lg:text-[50px] font-[800] text-center m-auto uppercase text-primary '
           data-aos='fade-left'
@@ -99,9 +76,6 @@ const Home = () => {
         >
           Chúng tôi biết bạn đang có một sản phẩm tốt và doanh nghiệp của bạn cần được
         </h1>
-        <div className='absolute top-[25%] left-[85%]' data-aos='fade-right' data-aos-duration='1500'>
-          <img src={iconSmile} alt='icon-smile' className='max-sm:w-[80px]' />
-        </div>
       </section>
 
       <section
@@ -201,9 +175,6 @@ const Home = () => {
           >
             Chúng tôi tự hào đồng hành cùng thương hiệu Việt Nam
           </h1>
-          <div className='max-sm:w-[50px] h-[50px] bottom-[-50px] right-[0px] lg:w-[100px] lg:h-[100px] rounded-[30px] bg-blue-600 flex items-center justify-center absolute lg:top-[40px] lg:right-[200px] transform rotate-12'>
-            <img src={likeIcon} alt='' className='animate-wave max-sm:w-[30px]' />
-          </div>
         </div>
         <div
           className='sm:grid-cols-1 w-full grid lg:grid-cols-3 gap-10 max-w-[1200px] m-auto mt-[100px]'
@@ -213,9 +184,6 @@ const Home = () => {
           <div className='min-h-[250px] cursor-pointer group'>
             <div className='border-[2px] border-primary relative p-5 rounded-[40px] group-hover:bg-[#ab3638] transition-colors'>
               <img src={noImage} alt='no-image' className='w-full rounded-[20px]' />
-              <div className='absolute max-sm:w-[60px] right-0 bottom-[-60px] lg:bottom-[-40px] lg:right-[-40px] w-[100px] h-[100px] z-10'>
-                <img src={iconSmile} alt='' />
-              </div>
             </div>
 
             <div className='w-full max-sm:h-[60px] lg:h-[80px] border-primary border-[2px] rounded-[40px] flex items-center justify-center mt-[30px]  group-hover:bg-[#ab3638] transition-colors'>
@@ -230,9 +198,6 @@ const Home = () => {
           <div className='min-h-[250px] cursor-pointer group'>
             <div className='border-[2px] border-primary relative p-5 rounded-[40px] group-hover:bg-[#ab3638]'>
               <img src={noImage} alt='no-image' className='w-full rounded-[20px]' />
-              <div className='absolute max-sm:w-[60px] right-0 bottom-[-60px] lg:bottom-[-40px] lg:right-[-40px] w-[100px] h-[100px] z-10'>
-                <img src={iconSmile} alt='' />
-              </div>
             </div>
 
             <div className='w-full h-[80px] border-primary border-[2px] rounded-[40px] flex items-center justify-center mt-[30px] group-hover:bg-[#ab3638]'>
@@ -247,9 +212,6 @@ const Home = () => {
           <div className='min-h-[250px] cursor-pointer group '>
             <div className='border-[2px] border-primary relative p-5 rounded-[40px] group-hover:bg-[#ab3638]'>
               <img src={noImage} alt='no-image' className='w-full rounded-[20px]' />
-              <div className='absolute max-sm:w-[60px] right-0 bottom-[-60px] lg:bottom-[-40px] lg:right-[-40px] w-[100px] h-[100px] z-10'>
-                <img src={iconSmile} alt='' />
-              </div>
             </div>
 
             <div className='w-full h-[80px] border-primary border-[2px] rounded-[40px] flex items-center justify-center mt-[30px] group-hover:bg-[#ab3638]'>
@@ -273,16 +235,6 @@ const Home = () => {
           >
             Chúng tôi cung cấp các dịch vụ trên mọi nền tảng
           </h1>
-          <div
-            className='max-sm:w-[50px] h-[50px] max-sm:bottom-[50px] max-sm:right-0 lg:w-[100px] lg:h-[100px] rounded-[30px] bg-blue-600 flex items-center justify-center absolute top-[80px] right-[300px] transform rotate-12'
-            data-aos='fade-left'
-            data-aos-duration='1000'
-          >
-            <img src={likeIcon} alt='' className='animate-wave max-sm:w-[30px]' />
-          </div>
-          <div className='max-sm:w-[50px] bottom-[-100px] absolute lg:bottom-[-40px] left-[220px] w-[100px] h-[100px] z-10'>
-            <img src={iconSmile} alt='' />
-          </div>
         </div>
 
         <div
@@ -319,10 +271,6 @@ const Home = () => {
           >
             Dự án tiêu biểu
           </h1>
-
-          <div className='absolute bottom-[-40px] right-[410px] w-[100px] h-[100px] z-10'>
-            <img src={iconSmile} alt='' />
-          </div>
         </div>
 
         <div
@@ -350,7 +298,13 @@ const Home = () => {
             <p>Không có dữ liệu</p>
           )}
         </div>
-        <CustomButton path='#' title='Xem thêm' />
+        <div className='w-full flex items-center justify-center'>
+          <Button className='w-[170px] h-[56px] bg-[#ab3638] rounded-[100px]'>
+            <Link to='gioi-thieu' className='text-[1.1rem]'>
+              Xem thêm
+            </Link>
+          </Button>
+        </div>
       </section>
 
       <section className='bg-black min-h-[400px] pt-[100px] p-5'>
@@ -362,10 +316,6 @@ const Home = () => {
           >
             Khách hàng thân thiết
           </h1>
-
-          <div className='absolute bottom-[-40px] right-[300px] w-[100px] h-[100px] z-10 animate-wave'>
-            <img src={iconHeart} alt='' />
-          </div>
         </div>
 
         <div

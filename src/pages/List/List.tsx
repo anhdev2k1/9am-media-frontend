@@ -1,15 +1,14 @@
 import { blogApi } from '@/apis/blogApi-api'
 import { categoryApi } from '@/apis/category-api'
 import { serviceApi } from '@/apis/service-api'
-import iconHeart from '@/assets/images/icon-heart.svg'
 import { BentoGridItem } from '@/components/BentoGrid'
+import Loading from '@/components/Loading/Loading'
 import { BLOG, SERVICE } from '@/constants/path'
 import { useQuery, useQueryClient } from '@tanstack/react-query'
 import { Pagination } from 'antd'
 import { useEffect, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import './list.scss'
-import Loading from '@/components/Loading/Loading'
 
 const List = () => {
   const location = useLocation().pathname
@@ -80,13 +79,6 @@ const List = () => {
           >
             {location.includes(BLOG) ? 'Dự án' : 'Dịch vụ'}
           </h1>
-          <div
-            className='absolute top-[30%] right-[-35%] animate-wave max-sm:right-[-65%]'
-            data-aos='fade-left'
-            data-aos-duration='3000'
-          >
-            <img src={iconHeart} alt='icon-smile' />
-          </div>
         </div>
       </div>
       <div className='text-center'>

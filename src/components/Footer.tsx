@@ -1,4 +1,3 @@
-import iconSmile from '@/assets/images/icon-smile.svg'
 import logo from '@/assets/images/logo.png'
 
 const Footer = () => {
@@ -7,12 +6,7 @@ const Footer = () => {
       <div className='absolute top-[100px] z-[-1] left-10'>
         <h1 className='text-[200px] max-sm:text-[60px] font-[900] opacity-15 z-[-1]'>9AM MEDIA</h1>
       </div>
-      <div className='absolute bottom-[30px] right-[120px]'>
-        <img src={iconSmile} alt='icon' className='w-[100px] opacity-20 ' />
-      </div>
-      <div className='absolute top-[30px] left-[120px]'>
-        <img src={iconSmile} alt='icon' className='w-[100px] opacity-20 ' />
-      </div>
+
       <div className='flex flex-col gap-5 w-[20%] max-sm:w-full'>
         <img src={logo} alt='' className='w-[50px]' />
         <span className='font-semibold'>9AM MEDIA CO., LTD</span>

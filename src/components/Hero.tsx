@@ -1,8 +1,5 @@
-import iconHeart from '@/assets/images/icon-heart.svg'
-import iconHand from '@/assets/images/icon-hand.svg'
-import iconSmile from '@/assets/images/icon-smile.svg'
-
-import CustomButton from './Button'
+import { Link } from 'react-router-dom'
+import { Button } from './ui/button'
 const Hero = () => {
   return (
     <div className='w-full min-h-[450px] bg-primary pt-[100px] pb-[100px]'>
@@ -14,30 +11,14 @@ const Hero = () => {
         >
           Bắt đầu làm việc cùng chúng tôi
         </h1>
-
-        <div
-          className='max-sm:hidden absolute bottom-[-100px] right-[150px] w-[100px] h-[100px] z-10 animate-wave'
-          data-aos='fade-right'
-          data-aos-duration='1000'
-        >
-          <img src={iconHeart} alt='' />
-        </div>
-        <div
-          className='absolute top-[-100px] right-[150px] w-[100px] h-[100px] z-10 rotate-12  bg-blue-500 flex items-center justify-center rounded-[30px]'
-          data-aos='zoom-out'
-          data-aos-duration='2000'
-        >
-          <img src={iconHand} alt='' className='animate-wave' />
-        </div>
-        <div
-          className='absolute top-[100px] left-[250px] w-[100px] h-[100px] z-10 animate-wave'
-          data-aos='fade-left'
-          data-aos-duration='3000'
-        >
-          <img src={iconSmile} alt='' />
-        </div>
       </div>
-      <CustomButton path='#' title='Liên Hệ' />
+      <div className='w-full flex items-center justify-center mt-10'>
+        <Button className='w-[170px] h-[56px] bg-[#ab3638] rounded-[100px]'>
+          <Link to='' className='text-[1.1rem]'>
+            Xem thêm
+          </Link>
+        </Button>
+      </div>
     </div>
   )
 }
