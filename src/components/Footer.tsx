@@ -1,6 +1,5 @@
-import logo from '@/assets/images/logo.png'
 import iconSmile from '@/assets/images/icon-smile.svg'
-import { Link } from 'react-router-dom'
+import logo from '@/assets/images/logo.png'
 
 const Footer = () => {
   return (
