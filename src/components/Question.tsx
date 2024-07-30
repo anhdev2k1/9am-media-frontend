@@ -3,24 +3,24 @@ const Question = () => {
   return (
     <div className='w-full min-h-[350px] pt-[100px] bg-primary pb-[100px]'>
       <div className='relative w-full h-max'>
-        <h1 className='lg:max-w-[70%] text-[50px] font-[800] text-center m-auto uppercase text-primary'>
+        <h1 className='lg:max-w-[70%] text-[50px] max-sm:text-[30px] font-[800] text-center m-auto uppercase text-primary'>
           Câu hỏi thường gặp
         </h1>
       </div>
       <Accordion type='single' collapsible className='mt-[50px] text-black'>
         <AccordionItem value='item-1' className='p-5'>
-          <AccordionTrigger className='text-[25px] font-bold'>
+          <AccordionTrigger className='text-[25px] max-sm:text-[20px] text-left font-bold'>
             NGÂN SÁCH DÀNH CHO MỘT THIẾT KẾ TỐT NHƯ THẾ NÀO?
           </AccordionTrigger>
           <AccordionContent className='h-max text-[16px]'>
             Trong giai đoạn doanh nghiệp Việt Nam đều hướng đến những giải pháp tinh gọn nhưng hiệu quả, 9AM Media định
-            hướng đồng hành doanh nghiệp với các gói giá cạnh tranh chỉ từ 1000.000 đồng cho một dịch vụ chất lượng,
+            hướng đồng hành doanh nghiệp với các gói giá cạnh tranh chỉ từ 1.000.000 đồng cho một dịch vụ chất lượng,
             đúng định hướng chiến lược.
           </AccordionContent>
         </AccordionItem>
 
         <AccordionItem value='item-2' className='p-5'>
-          <AccordionTrigger className='text-[25px] font-bold'>
+          <AccordionTrigger className='text-[25px] font-bold max-sm:text-[20px] text-left'>
             TÔI CÓ THỂ NHẬN THÊM CÁC CHÍNH SÁCH HẬU MÃI NÀO?
           </AccordionTrigger>
           <AccordionContent className='h-max text-[16px]'>
@@ -31,7 +31,7 @@ const Question = () => {
         </AccordionItem>
 
         <AccordionItem value='item-3' className='p-5'>
-          <AccordionTrigger className='text-[25px] font-bold'>
+          <AccordionTrigger className='text-[25px] font-bold max-sm:text-[20px] text-left'>
             9AM MEDIA KHÁC BIỆT SO VỚI ĐƠN VỊ KHÁC NHƯ THẾ NÀO?
           </AccordionTrigger>
           <AccordionContent className='h-max text-[16px]'>

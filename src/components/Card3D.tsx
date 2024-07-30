@@ -2,7 +2,7 @@
 'use client'
 
 import { cn } from '@/lib/utils'
-import React, { createContext, useState, useContext, useRef, useEffect } from 'react'
+import React, { createContext, useContext, useEffect, useRef, useState } from 'react'
 
 const MouseEnterContext = createContext<[boolean, React.Dispatch<React.SetStateAction<boolean>>] | undefined>(undefined)
 
@@ -63,7 +63,7 @@ export const CardContainer = ({
 
 export const CardBody = ({ children, className }: { children: React.ReactNode; className?: string }) => {
   return (
-    <div className={cn('[transform-style:preserve-3d]  [&>*]:[transform-style:preserve-3d]', className)}>
+    <div className={cn('[transform-style:preserve-3d] [&>*]:[transform-style:preserve-3d]', className)}>
       {children}
     </div>
   )

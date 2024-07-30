@@ -67,9 +67,9 @@ const Navbar = () => {
           <div>
             <div className='w-[100vw] h-[100vh] bg-black z-10 opacity-90 fixed top-0 left-0'></div>
             <div
-              className={`flex flex-col gap-5 p-5 hover:text-primary-foreground w-[300px] h-[100vh] fixed top-0 z-10 transform ${openSidebar ? 'translate-x-[-90%]' : 'translate-x-[200px]'} transition-transform bg-secondary`}
+              className={`flex flex-col gap-5 p-5 hover:text-primary-foreground w-[300px] h-[100vh] fixed top-0 z-10 transform ${openSidebar ? 'translate-x-[-90%]' : 'translate-x-[200px]'} transition-transform bg-black`}
             >
-              <div className='flex items-center justify-center w-[30px] h-[30px] rounded-md hover:bg-primary ml-auto mr-[10px]'>
+              <div className='flex items-center justify-center w-[30px] h-[30px] rounded-md cursor-pointer ml-auto mr-[10px]'>
                 <svg
                   width='20'
                   height='20'
@@ -88,7 +88,11 @@ const Navbar = () => {
               </div>
               {navbarLinks.map((item, index) => {
                 return (
-                  <Link to={item.path} className='hover:text-primary-foreground transition-all text-base' key={index}>
+                  <Link
+                    to={item.path}
+                    className='hover:text-primary-foreground transition-all text-[14px] font-semibold'
+                    key={index}
+                  >
                     {item.title}
                   </Link>
                 )

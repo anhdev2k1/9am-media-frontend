@@ -58,6 +58,7 @@ const Footer = () => {
         <span>Dịch vụ Tiktok</span>
         <span>Dịch vụ Instagram</span>
         <span>Truyền thông & xã hội</span>
+        <span>Dịch vụ Google</span>
       </div>
     </footer>
   )
