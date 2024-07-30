@@ -5,6 +5,10 @@ import { Button } from '@/components/ui/button'
 import { useQuery } from '@tanstack/react-query'
 import { Link } from 'react-router-dom'
 import './home.scss'
+import { ContainerScroll } from '@/components/ui/container-scroll-animation'
+import { Image } from 'antd'
+import { HeroParallax } from '@/components/ui/hero-parallax'
+import { products } from '@/mocks/hero-parallax'
 const useFetch = () => {
   const { data: ListCategory, isLoading: CategoryLoading } = useQuery({
     queryKey: ['list-category'],
@@ -37,11 +41,11 @@ const Home = () => {
           loop
           className='max-sm:h-[40vh] lg:h-[100vh] w-full object-cover object-center block'
         >
-          <source src='/images/thumb_video2.mp4' />
+          <source src='/images/main_video.mp4' />
         </video>
       </section>
 
-      <section className='p-5 max-sm:w-[90dvw] m-auto'>
+      <section className='p-5 max-w-[1200px] m-auto max-sm:p-3'>
         <div className='w-max relative m-auto lg:pt-[50px]'>
           <h1
             className='max-sm:text-[50px] lg:text-[100px] font-[900] uppercase text-primary leading-[186px]'
@@ -59,7 +63,10 @@ const Home = () => {
           Cùng khám phá chuỗi dịch vụ truyền thông sáng tạo và công nghệ đa phương tiện của chúng tôi.
         </p>
 
-        <div className='relative w-[50%] m-auto min-h-[100px] mt-[100px] flex justify-center'>
+        <div className='relative w-[50%] m-auto min-h-[100px] mt-[100px] flex justify-center items-center'>
+          <div className='absolute top-0 left-0'>
+            <img src='/images/arrow-gif.gif' alt='' />
+          </div>
           <Button className='button-27 !w-[220px]'>
             <Link to='gioi-thieu' className='text-[1.1rem]'>
               Xem thêm
@@ -70,9 +77,13 @@ const Home = () => {
       {/* <section className='mt-[50px] min-h-[100px] relative p-5 max-sm:w-[90dvw] m-auto'>
         <AppleCardsCarouselDemo />
       </section> */}
-      <section className='w-[1200px] mt-[50px] min-h-[100px] relative p-5 max-sm:w-[90dvw] m-auto'>
+
+      <section className='max-w-[1200px] mt-[50px] min-h-[100px] relative m-auto mb-[200px] max-sm:p-3'>
+        <HeroParallax products={products} />
+      </section>
+      <section className='max-w-[1200px] mt-[50px] min-h-[100px] relative m-auto mb-20 max-sm:p-3'>
         <h1
-          className='max-sm:max-w-full max-sm:text-[20px] break-words lg:max-w-[70%] lg:text-[50px] font-[800] text-center m-auto uppercase text-primary '
+          className='max-sm:max-w-full max-sm:text-[20px] break-words lg:max-w-[100%] lg:text-[40px] font-[800] text-center m-auto uppercase text-primary '
           data-aos='fade-left'
           data-aos-duration='500'
         >
@@ -101,7 +112,17 @@ const Home = () => {
               />
             </CardItem>
             <div className='flex justify-between items-center mt-10'>
-              <Button className='button-27'>Xem thêm</Button>
+              <Link to='#' className='text-red-500 font-bold flex items-center gap-2 m-auto'>
+                <span>Xem thêm</span>
+                <svg width='20' height='20' viewBox='0 0 15 15' fill='none' xmlns='http://www.w3.org/2000/svg'>
+                  <path
+                    d='M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z'
+                    fill='currentColor'
+                    fill-rule='evenodd'
+                    clip-rule='evenodd'
+                  ></path>
+                </svg>
+              </Link>
             </div>
           </CardBody>
         </CardContainer>
@@ -121,7 +142,17 @@ const Home = () => {
               />
             </CardItem>
             <div className='flex justify-between items-center mt-10'>
-              <Button className='button-27'>Xem thêm</Button>
+              <Link to='#' className='text-red-500 font-bold flex items-center gap-2 m-auto'>
+                <span>Xem thêm</span>
+                <svg width='20' height='20' viewBox='0 0 15 15' fill='none' xmlns='http://www.w3.org/2000/svg'>
+                  <path
+                    d='M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z'
+                    fill='currentColor'
+                    fill-rule='evenodd'
+                    clip-rule='evenodd'
+                  ></path>
+                </svg>
+              </Link>
             </div>
           </CardBody>
         </CardContainer>
@@ -141,16 +172,50 @@ const Home = () => {
               />
             </CardItem>
             <div className='flex justify-between items-center mt-10'>
-              <Button className='button-27'>Xem thêm</Button>
+              <Link to='#' className='text-red-500 font-bold flex items-center gap-2 m-auto'>
+                <span>Xem thêm</span>
+                <svg width='20' height='20' viewBox='0 0 15 15' fill='none' xmlns='http://www.w3.org/2000/svg'>
+                  <path
+                    d='M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z'
+                    fill='currentColor'
+                    fill-rule='evenodd'
+                    clip-rule='evenodd'
+                  ></path>
+                </svg>
+              </Link>
             </div>
           </CardBody>
         </CardContainer>
       </section>
 
-      <section className='bg-primary min-h-[400px] pt-[100px] pb-[100px] p-5 max-sm:w-[90dvw] m-auto'>
+      <section className='max-w-[1200px] mt-[20px] min-h-[100px] relative m-auto mb-10 max-sm:p-3'>
+        <div className='flex flex-col overflow-hidden gap-5'>
+          <ContainerScroll
+            titleComponent={
+              <div className='flex flex-col gap-3'>
+                <h1 className='max-sm:text-2xl text-[30px] font-semibold text-black'>
+                  Khẳng định <br />
+                  <p className='max-sm:text-[30px] text-[50px] uppercase font-bold mt-1 leading-none text-[#ab3638]'>
+                    Thương hiệu
+                  </p>
+                </h1>
+              </div>
+            }
+          >
+            <Image
+              src={`/images/slide_2.jpg`}
+              alt='hero'
+              className='mx-auto rounded-2xl h-full object-left-top object-contain'
+              draggable={false}
+              preview={false}
+            />
+          </ContainerScroll>
+        </div>
+      </section>
+      <section className='bg-primary min-h-[400px] pt-[50px] pb-[100px] p-5 max-sm:w-[90dvw] m-auto'>
         <div className='relative w-full h-max'>
           <h1
-            className='max-sm:max-w-full text-[20px] lg:max-w-[70%] lg:text-[50px] font-[800] text-center m-auto uppercase text-primary '
+            className='max-sm:max-w-full text-[20px] lg:max-w-[70%] lg:text-[40px] font-[800] text-center m-auto uppercase text-primary '
             data-aos='fade-up'
             data-aos-duration='500'
           >
@@ -300,7 +365,7 @@ const Home = () => {
         </div>
 
         <div
-          className='grid grid-cols-4 max-sm:grid-cols-2 gap-10 pt-[100px] m-auto pb-[100px] '
+          className='grid grid-cols-4 max-sm:grid-cols-2 gap-10 pt-[100px] m-auto pb-[100px]  max-w-[1200px]'
           data-aos='fade-up'
           data-aos-duration='2500'
         >

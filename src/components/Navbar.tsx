@@ -86,6 +86,10 @@ const Navbar = () => {
                   ></path>
                 </svg>
               </div>
+              <div className='flex items-center gap-2'>
+                <img src='/src/assets/images/logo.png' alt='/images/logo.png' className='w-[50px]' />
+                <span className='font-bold text-[20px]'>9AM Media.</span>
+              </div>
               {navbarLinks.map((item, index) => {
                 return (
                   <Link
