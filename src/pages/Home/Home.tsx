@@ -1,6 +1,5 @@
 import { blogApi } from '@/apis/blogApi-api'
 import { categoryApi } from '@/apis/category-api'
-import noImage from '@/assets/images/no-image.png'
 import { CardBody, CardContainer, CardItem } from '@/components/Card3D'
 import { Button } from '@/components/ui/button'
 import { useQuery } from '@tanstack/react-query'
@@ -93,7 +92,7 @@ const Home = () => {
             </CardItem>
             <CardItem translateZ='100' rotateX={20} rotateZ={-10} className='w-full mt-4'>
               <img
-                src='https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=2560&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+                src='/images/hero_1.jpg'
                 className='h-60 w-full object-cover rounded-xl group-hover/card:shadow-xl'
                 alt='thumbnail'
               />
@@ -120,7 +119,7 @@ const Home = () => {
             </CardItem>
             <CardItem translateZ='100' rotateX={20} rotateZ={-10} className='w-full mt-4'>
               <img
-                src='https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=2560&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+                src='/images/hero_2.jpg'
                 className='h-60 w-full object-cover rounded-xl group-hover/card:shadow-xl'
                 alt='thumbnail'
               />
@@ -147,7 +146,7 @@ const Home = () => {
             </CardItem>
             <CardItem translateZ='100' rotateX={20} rotateZ={-10} className='w-full mt-4'>
               <img
-                src='https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=2560&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+                src='/images/hero_3.jpg'
                 className='h-60 w-full object-cover rounded-xl group-hover/card:shadow-xl'
                 alt='thumbnail'
               />
@@ -183,7 +182,7 @@ const Home = () => {
         >
           <div className='min-h-[250px] cursor-pointer group'>
             <div className='border-[2px] border-primary relative p-5 rounded-[40px] group-hover:bg-[#ab3638] transition-colors'>
-              <img src={noImage} alt='no-image' className='w-full rounded-[20px]' />
+              <img src='/images/thumb_1.jpg' alt='no-image' className='w-full rounded-[20px]' />
             </div>
 
             <div className='w-full max-sm:h-[60px] lg:h-[80px] border-primary border-[2px] rounded-[40px] flex items-center justify-center mt-[30px]  group-hover:bg-[#ab3638] transition-colors'>
@@ -197,7 +196,7 @@ const Home = () => {
           </div>
           <div className='min-h-[250px] cursor-pointer group'>
             <div className='border-[2px] border-primary relative p-5 rounded-[40px] group-hover:bg-[#ab3638]'>
-              <img src={noImage} alt='no-image' className='w-full rounded-[20px]' />
+              <img src='/images/thumb_2.jpg' alt='no-image' className='w-full rounded-[20px]' />
             </div>
 
             <div className='w-full h-[80px] border-primary border-[2px] rounded-[40px] flex items-center justify-center mt-[30px] group-hover:bg-[#ab3638]'>
@@ -211,7 +210,7 @@ const Home = () => {
           </div>
           <div className='min-h-[250px] cursor-pointer group '>
             <div className='border-[2px] border-primary relative p-5 rounded-[40px] group-hover:bg-[#ab3638]'>
-              <img src={noImage} alt='no-image' className='w-full rounded-[20px]' />
+              <img src='/images/thumb_3.jpg' alt='no-image' className='w-full rounded-[20px]' />
             </div>
 
             <div className='w-full h-[80px] border-primary border-[2px] rounded-[40px] flex items-center justify-center mt-[30px] group-hover:bg-[#ab3638]'>
@@ -250,7 +249,7 @@ const Home = () => {
                 <Link
                   to={'/dich-vu/' + category._id}
                   key={index}
-                  className='max-sm:h-[50px] lg:h-[70px] rounded-[40px] border border-white flex items-center justify-center hover:bg-white hover:text-black transition-colors cursor-pointer'
+                  className='max-sm:h-[50px] lg:h-[70px] rounded-[40px] border p-5 text-center border-white flex items-center justify-center hover:bg-white hover:text-black transition-colors cursor-pointer'
                 >
                   <span className='max-sm:text-[14px] lg:text-[18px] font-bold uppercase'>{category.name}</span>
                 </Link>
@@ -274,7 +273,7 @@ const Home = () => {
         </div>
 
         <div
-          className='max-w-[1200px] m-auto min-h-[150px] grid lg:grid-cols-2 sm:grid-cols-1 mt-[100px] gap-10 justify-center'
+          className='max-w-[1200px] m-auto min-h-[150px] grid lg:grid-cols-2 max-sm:grid-cols-1 mt-[100px] gap-10 justify-center'
           data-aos='flip-left'
           data-aos-duration='2000'
         >
@@ -287,7 +286,7 @@ const Home = () => {
                   <div className='item__img'>
                     <img src={blog.thumbnail} alt='' />
                   </div>
-                  <div className='item__content'>
+                  <div className='item__content max-sm:line-clamp-3'>
                     <h3>{blog.name}</h3>
                     <span>{blog.description}</span>
                   </div>
@@ -310,7 +309,7 @@ const Home = () => {
       <section className='bg-black min-h-[400px] pt-[100px] p-5'>
         <div className='relative w-full h-max'>
           <h1
-            className='max-w-[70%] text-[50px] font-[800] text-center m-auto uppercase text-primary '
+            className='lg:max-w-[70%] text-[50px] max-sm:text-[30px] font-[800] text-center m-auto uppercase text-primary '
             data-aos='fade-up'
             data-aos-duration='1000'
           >
