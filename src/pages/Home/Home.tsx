@@ -32,16 +32,16 @@ const useFetch = () => {
 const Home = () => {
   const { ListCategory, CategoryLoading, ListBlog, BlogLoading } = useFetch()
   return (
-    <div className='w-full min-h-[400px]'>
-      <section className='w-full lg:h-[100vh]'>
+    <div className='w-full'>
+      <section className='w-full lg:h-[100vh] bg-black'>
         <video
           autoPlay
           muted
           playsInline
           loop
-          className='max-sm:h-[40vh] lg:h-[100vh] w-full object-cover object-center block'
+          className='max-sm:h-[40vh] lg:h-[100vh] w-full object-contain object-center block'
         >
-          <source src='/images/main_video.mp4' />
+          <source src='/images/video.mp4' />
         </video>
       </section>
 
