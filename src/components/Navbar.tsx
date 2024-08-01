@@ -1,4 +1,3 @@
-import logo from '@/assets/images/logo.png'
 import { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 type NavbarLinks = {
@@ -45,13 +44,10 @@ const Navbar = () => {
   }, [location.pathname])
 
   return (
-    <div
-      className={`w-[100vw] h-[90px] pl-5 pr-5 flex items-center justify-between bg-[#ab3638] fixed top-0 left-0 z-20`}
-    >
+    <div className={`w-[100vw] h-[90px] pl-5 pr-5 flex items-center justify-between bg-black fixed top-0 left-0 z-20`}>
       <div className='w-[1200px] m-auto flex items-center justify-between'>
         <Link to='/trang-chu' className=' text-xl font-medium text-secondary-foreground flex items-center gap-3'>
-          <img src={logo} alt='' className='w-[40px]' />
-          <span className='font-bold'>9AM Media.</span>
+          <img src='/images/logo.png' alt='' className='w-[120px] max-sm:w-[90px]' />
         </Link>
         <div className='lg:hidden' onClick={() => setOpenSidebar(!openSidebar)}>
           <svg width='25' height='25' viewBox='0 0 15 15' fill='none' xmlns='http://www.w3.org/2000/svg'>
@@ -87,8 +83,7 @@ const Navbar = () => {
                 </svg>
               </div>
               <div className='flex items-center gap-2'>
-                <img src='/src/assets/images/logo.png' alt='/images/logo.png' className='w-[50px]' />
-                <span className='font-bold text-[20px]'>9AM Media.</span>
+                <img src='/images/logo.png' alt='/images/logo.png' className='w-[120px]' />
               </div>
               {navbarLinks.map((item, index) => {
                 return (

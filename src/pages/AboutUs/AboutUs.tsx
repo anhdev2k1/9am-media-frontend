@@ -15,16 +15,16 @@ const AboutUs = () => {
           <source src='/images/video_2.mp4' />
         </video>
       </section>
-      <section className='mt-[100px] relative p-5 max-sm:text-center'>
+      <section className='mt-[100px] max-w-[1200px] m-auto relative p-5 max-sm:text-center'>
         <h1
-          className='text-[100px] max-sm:text-[3.5rem] font-[900] text-primary uppercase'
+          className='text-[100px] max-sm:text-[3.5rem] font-bold text-primary uppercase'
           data-aos='fade-up'
           data-aos-duration='1000'
         >
           9AM Media
         </h1>
         <h2
-          className='text-[80px] max-sm:text-[20px] font-extrabold text-black uppercase max-w-[70%] max-sm:w-full m-auto'
+          className='text-[80px] max-sm:text-[20px] font-bold text-black uppercase max-sm:w-full m-auto'
           data-aos='fade-up'
           data-aos-duration='2500'
         >

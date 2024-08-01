@@ -2,13 +2,13 @@ import { blogApi } from '@/apis/blogApi-api'
 import { categoryApi } from '@/apis/category-api'
 import { CardBody, CardContainer, CardItem } from '@/components/Card3D'
 import { Button } from '@/components/ui/button'
-import { useQuery } from '@tanstack/react-query'
-import { Link } from 'react-router-dom'
-import './home.scss'
 import { ContainerScroll } from '@/components/ui/container-scroll-animation'
-import { Image } from 'antd'
 import { HeroParallax } from '@/components/ui/hero-parallax'
 import { products } from '@/mocks/hero-parallax'
+import { useQuery } from '@tanstack/react-query'
+import { Image } from 'antd'
+import { Link } from 'react-router-dom'
+import './home.scss'
 const useFetch = () => {
   const { data: ListCategory, isLoading: CategoryLoading } = useQuery({
     queryKey: ['list-category'],
@@ -371,16 +371,13 @@ const Home = () => {
         >
           {Array.from([1, 2, 3, 4, 5, 6, 7, 8]).map((item) => {
             return (
-              <div className='bg-white p-5 rounded-[30px] flex max-sm:flex-col max-sm:items-center gap-4 justify-between group hover:text-primary overflow-hidden transition-all'>
+              <div className='bg-white p-5 rounded-[30px] flex max-sm:flex-col max-sm:items-center gap-4 justify-center group hover:text-primary overflow-hidden transition-all'>
                 <img
                   src={'/images/khach-hang/kh_' + item + '.jpeg'}
                   alt={'kh' + item}
                   key={item}
-                  className='rounded-[30px] w-[150px] h-[150px] scale-[1] group-hover:scale-[1.1] transition-transform'
+                  className='rounded-[30px] w-max h-[150px] scale-[1] group-hover:scale-[1.1] transition-transform'
                 />
-                <h1 className='text-[90px] max-sm:text-[30px] text-gray-100 font-bold group-hover:text-primary transition-all'>
-                  {item}
-                </h1>
               </div>
             )
           })}
