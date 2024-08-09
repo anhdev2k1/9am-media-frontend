@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { blogApi } from '@/apis/blogApi-api'
 import { categoryApi } from '@/apis/category-api'
 import { CardBody, CardContainer, CardItem } from '@/components/Card3D'
@@ -9,6 +10,7 @@ import { useQuery } from '@tanstack/react-query'
 import { Image } from 'antd'
 import { Link } from 'react-router-dom'
 import './home.scss'
+import { customerApi } from '@/apis/customer-api'
 const useFetch = () => {
   const { data: ListCategory, isLoading: CategoryLoading } = useQuery({
     queryKey: ['list-category'],
@@ -20,17 +22,24 @@ const useFetch = () => {
     queryFn: () => blogApi.findAllBlog(1, 10)
   })
 
+  const { data: ListCustomer, isLoading: CustomerLoading } = useQuery({
+    queryKey: ['list-customer'],
+    queryFn: () => customerApi.findAllCustomer()
+  })
+
   //return
   return {
     ListCategory,
     CategoryLoading,
     ListBlog,
-    BlogLoading
+    BlogLoading,
+    ListCustomer,
+    CustomerLoading
   }
 }
 
 const Home = () => {
-  const { ListCategory, CategoryLoading, ListBlog, BlogLoading } = useFetch()
+  const { ListCategory, CategoryLoading, ListBlog, BlogLoading, ListCustomer } = useFetch()
   return (
     <div className='w-full'>
       <section className='w-full lg:h-[100vh] bg-black'>
@@ -369,18 +378,35 @@ const Home = () => {
           data-aos='fade-up'
           data-aos-duration='2500'
         >
-          {Array.from([1, 2, 3, 4, 5, 6, 7, 8]).map((item) => {
-            return (
-              <div className='bg-white p-5 rounded-[30px] flex max-sm:flex-col max-sm:items-center gap-4 justify-center group hover:text-primary overflow-hidden transition-all'>
-                <img
-                  src={'/images/khach-hang/kh_' + item + '.jpeg'}
-                  alt={'kh' + item}
-                  key={item}
-                  className='rounded-[30px] w-max h-[150px] scale-[1] group-hover:scale-[1.1] transition-transform'
-                />
-              </div>
-            )
-          })}
+          {ListCustomer?.metadata?.length > 0
+            ? ListCustomer?.metadata?.map((item: any, index: number) => {
+                return (
+                  <div
+                    key={index}
+                    className='bg-white p-5 rounded-[30px] flex max-sm:flex-col max-sm:items-center gap-4 justify-center group hover:text-primary overflow-hidden transition-all'
+                  >
+                    <img
+                      src={item?.image}
+                      alt={'kh' + item?.name ?? ''}
+                      className='rounded-[30px] w-max h-[150px] object-contain scale-[1] group-hover:scale-[1.1] transition-transform'
+                    />
+                  </div>
+                )
+              })
+            : Array.from([1, 2, 3, 4, 5, 6, 7, 8]).map((item) => {
+                return (
+                  <div
+                    key={item}
+                    className='bg-white p-5 rounded-[30px] flex max-sm:flex-col max-sm:items-center gap-4 justify-center group hover:text-primary overflow-hidden transition-all'
+                  >
+                    <img
+                      src={'/images/khach-hang/kh_' + item + '.jpeg'}
+                      alt={'kh' + item}
+                      className='rounded-[30px] w-max h-[150px] scale-[1] group-hover:scale-[1.1] transition-transform'
+                    />
+                  </div>
+                )
+              })}
         </div>
       </section>
     </div>

@@ -1,5 +1,6 @@
 import Login from '@/admin/pages/Login'
 import ListBlog from '@/admin/pages/blog-page/ListBlog'
+import Customer from '@/admin/pages/customer-page/Customer'
 import CreateService from '@/admin/pages/services-page/CreateService'
 import ServiceDetail from '@/admin/pages/services-page/ServiceDetail'
 import Services from '@/admin/pages/services-page/Services'
@@ -162,6 +163,14 @@ export const routes = createBrowserRouter([
         element: (
           <Suspense>
             <ServiceDetail />
+          </Suspense>
+        )
+      },
+      {
+        path: 'customers',
+        element: (
+          <Suspense>
+            <Customer />
           </Suspense>
         )
       }

@@ -1,78 +1,53 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import Toast from '@/admin/components/Toast'
 import UploadIllustration from '@/admin/components/upload/upload-illustration'
-import { blogApi } from '@/apis/blogApi-api'
-import { categoryApi } from '@/apis/category-api'
+import { customerApi } from '@/apis/customer-api'
 import noImage from '@/assets/images/no-image.png'
 import { uploadToCloudinary } from '@/cloudinary/cloudinaryHelper'
 import { Button } from '@/components/ui/button'
 import { PlusOutlined } from '@ant-design/icons'
 import { QueryClient, useMutation, useQuery } from '@tanstack/react-query'
 import { Form, Input, Modal, Popconfirm, Table, Upload } from 'antd'
-import TextArea from 'antd/es/input/TextArea'
-import { useEffect, useState } from 'react'
-import { Link, useLocation } from 'react-router-dom'
-const Services = () => {
+import { useState } from 'react'
+const Customer = () => {
   const queryClient = new QueryClient()
   const [query, setQuery] = useState<{ page: number; total: number; pageSize: number }>({
     page: 1,
     pageSize: 10,
     total: 0
   })
-  const location = useLocation().pathname.split('/')
-  const queryKey = location[2].includes('services') ? 'services' : 'blogs'
-  const handleQuery = async () => {
-    if (queryKey.includes('services')) {
-      return categoryApi.findAllCategories(query.page, query.pageSize)
-    } else {
-      return blogApi.findAllBlog(query.page, query.pageSize)
-    }
-  }
-  const [currentCategory, setCurrentCategory] = useState<any>(null)
+
+  const [currentCustomer, setCurrentCustomer] = useState<any>(null)
   const [form] = Form.useForm()
   const [formCreate] = Form.useForm()
   const [openModal, setOpenModal] = useState<boolean>(false)
   const [openModalCreate, setOpenModalCreate] = useState<boolean>(false)
   const {
-    data: ListService,
+    data: ListCustomer,
     isLoading,
     refetch
   } = useQuery({
-    queryKey: ['categories'],
-    queryFn: () => handleQuery()
+    queryKey: ['customers'],
+    queryFn: () => customerApi.findAllCustomer()
   })
 
-  const { mutate: DeleteCategory } = useMutation({
-    mutationFn: categoryApi.deleteCategory
+  const { mutate: DeleteCustomer } = useMutation({
+    mutationFn: customerApi.deleteCustomer
   })
 
-  const ServiceColumns = [
+  const CustomerColumns = [
     {
       title: 'Hình ảnh',
-      dataIndex: 'thumbnail',
-      key: 'thumbnail',
+      dataIndex: 'image',
+      key: 'image',
       render: (record: any) => (
-        <img src={record ? record : noImage} alt='service-img' className='w-[100px] rounded-md' />
+        <img src={record ? record : noImage} alt='customer-img' className='w-[100px] rounded-md' />
       )
     },
     {
-      title: 'Tên dịch vụ',
+      title: 'Tên khách hàng',
       dataIndex: 'name',
       key: 'name'
-    },
-    {
-      title: 'Mô tả',
-      dataIndex: 'description',
-      key: 'description',
-      render: (record: string) => <span className='line-clamp-1'>{record}</span>
-    },
-    {
-      title: 'Chi tiết',
-      render: (record: any) => (
-        <Link to={record._id} className='text-primary font-semibold cursor-pointer'>
-          Xem chi tiết
-        </Link>
-      )
     },
     {
       title: 'Thao tác',
@@ -89,10 +64,11 @@ const Services = () => {
               Cập nhật
             </Button>
             <Popconfirm
-              title='Xoá dịch vụ'
-              description='Bạn có muốn xoá dịch vụ?'
+              title='Xoá khách hàng'
+              description='Bạn có muốn xoá khách hàng này?'
               onConfirm={() => {
-                DeleteCategory(record._id)
+                DeleteCustomer(record?._id)
+                queryClient.invalidateQueries({ queryKey: ['customers'] })
                 refetch()
               }}
               okText='Đồng ý'
@@ -106,18 +82,12 @@ const Services = () => {
     }
   ]
 
-  useEffect(() => {
-    if (query.page) {
-      refetch()
-    }
-  }, [query.page, window.location.pathname])
-
-  const { mutate: UpdateCategory } = useMutation({
-    mutationFn: (values) => categoryApi.updateCategory(currentCategory._id, values)
+  const { mutate: UpdateCustomer } = useMutation({
+    mutationFn: (values) => customerApi.updateCustomer(currentCustomer._id, values)
   })
   const handleUpdate = (values: any) => {
-    UpdateCategory(values)
-    queryClient.invalidateQueries({ queryKey: ['categories'] })
+    UpdateCustomer(values)
+    queryClient.invalidateQueries({ queryKey: ['customers'] })
     refetch()
     Toast({ message: 'Cập nhật thành công', position: 'top-right' })
     setOpenModal(false)
@@ -133,18 +103,18 @@ const Services = () => {
     })
   }
 
-  const { mutate: createCategory } = useMutation({
-    mutationFn: categoryApi.createCategory,
+  const { mutate: createCustomer } = useMutation({
+    mutationFn: customerApi.createCustomer,
     onSuccess() {
-      Toast({ message: 'Tạo dịch vụ thành công', position: 'top-right' })
-      queryClient.invalidateQueries({ queryKey: ['categories'] })
+      Toast({ message: 'Tạo khách hàng thành công', position: 'top-right' })
+      queryClient.invalidateQueries({ queryKey: ['customers'] })
       refetch()
       form.resetFields()
       setOpenModalCreate(false)
     }
   })
   const handleCreate = (values: any) => {
-    createCategory(values)
+    createCustomer(values)
   }
 
   return (
@@ -154,7 +124,7 @@ const Services = () => {
           <div className='mb-5 flex justify-between items-center'>
             <div>
               <h2 className='text-2xl font-bold tracking-tight text-black'>Chào mừng trở lại!</h2>
-              <p className='text-muted-foreground'>Đây là danh sách dịch vụ của bạn!</p>
+              <p className='text-muted-foreground'>Đây là danh sách khách hàng của bạn!</p>
             </div>
             <Button
               className='flex items-center gap-2 text-primary font-bold rounded-[8px]'
@@ -168,13 +138,13 @@ const Services = () => {
                   clipRule='evenodd'
                 ></path>
               </svg>
-              <span>{queryKey.includes('services') ? 'Tạo dịch vụ' : 'Tạo bài đăng'}</span>
+              <span>Tạo khách hàng</span>
             </Button>
           </div>
 
           <Table
-            columns={ServiceColumns}
-            dataSource={ListService?.metadata.data as any}
+            columns={CustomerColumns}
+            dataSource={ListCustomer?.metadata as any}
             loading={isLoading}
             pagination={{
               onChange(page, pageSize) {
@@ -183,18 +153,17 @@ const Services = () => {
                   page,
                   pageSize
                 }))
-                queryClient.invalidateQueries({ queryKey: ['categories', { page, pageSize }] })
+                queryClient.invalidateQueries({ queryKey: ['customers', { page, pageSize }] })
               },
-              total: Number(ListService?.metadata.totalPage) * 10,
-              pageSize: query.pageSize,
               responsive: true,
               position: ['bottomCenter'],
-              current: query.page
+              current: query.page,
+              pageSize: 5
             }}
             onRow={(record) => {
               return {
                 onClick: () => {
-                  setCurrentCategory(record)
+                  setCurrentCustomer(record)
                   form.setFieldsValue(record)
                 }
               }
@@ -221,12 +190,12 @@ const Services = () => {
             form={form}
           >
             <div className='flex items-center flex-col  gap-5'>
-              {currentCategory?.thumbnail && (
+              {currentCustomer?.image && (
                 <div className='border border-[#e3e3e3]'>
-                  <img src={currentCategory?.thumbnail} alt='' className='w-full h-[150px] object-cover rounded-md' />
+                  <img src={currentCustomer?.image} alt='' className='w-full h-[150px] object-cover rounded-md' />
                 </div>
               )}
-              <Form.Item name='thumbnail' getValueFromEvent={(value) => value.file?.response?.url} className='w-full'>
+              <Form.Item name='image' getValueFromEvent={(value) => value.file?.response?.url} className='w-full'>
                 <Upload listType='picture-card' customRequest={handleUploadImage}>
                   <button style={{ border: 0, background: 'none' }} type='button'>
                     <UploadIllustration />
@@ -236,11 +205,8 @@ const Services = () => {
                 {/* <Upload1 customRequest={handleUploadImage} /> */}
               </Form.Item>
             </div>
-            <Form.Item label='Tên dịch vụ' name='name'>
-              <Input placeholder='Nhập tên dịch vụ' className='h-[40px]' />
-            </Form.Item>
-            <Form.Item label='Mô tả' name='description'>
-              <TextArea placeholder='Nhập mô tả' />
+            <Form.Item label='Tên khách hàng' name='name'>
+              <Input placeholder='Nhập tên khách hàng' className='h-[40px]' />
             </Form.Item>
             <Button type='submit' className='bg-black w-full rounded-[10px]'>
               Cập nhật
@@ -260,7 +226,7 @@ const Services = () => {
             form={formCreate}
           >
             <div className='flex items-center gap-4'>
-              <Form.Item label='Hình ảnh' name='thumbnail' getValueFromEvent={(value) => value.file?.response?.url}>
+              <Form.Item label='Hình ảnh' name='image' getValueFromEvent={(value) => value.file?.response?.url}>
                 <Upload listType='picture-card' customRequest={handleUploadImage}>
                   <button style={{ border: 0, background: 'none' }} type='button'>
                     <PlusOutlined />
@@ -269,14 +235,11 @@ const Services = () => {
                 </Upload>
               </Form.Item>
             </div>
-            <Form.Item label={'Tên dịch vụ'} name='name'>
-              <Input placeholder={'Nhập tên dịch vụ'} className='h-[40px]' />
-            </Form.Item>
-            <Form.Item label='Mô tả' name='description'>
-              <TextArea placeholder='Nhập mô tả' />
+            <Form.Item label={'Tên khách hàng'} name='name'>
+              <Input placeholder={'Nhập tên khách hàng'} className='h-[40px]' />
             </Form.Item>
             <Button type='submit' className='bg-secondary w-full text-white'>
-              Tạo dịch vụ
+              Tạo khách hàng
             </Button>
           </Form>
         </Modal>
@@ -285,4 +248,4 @@ const Services = () => {
   )
 }
 
-export default Services
+export default Customer

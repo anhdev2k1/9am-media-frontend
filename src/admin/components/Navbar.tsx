@@ -32,6 +32,12 @@ const NavbarAdmin = () => {
         >
           Bài đăng
         </Link>
+        <Link
+          to='/admin/customers'
+          className={`w-[140px] h-[90px] flex items-center justify-center ${location.includes('customers') ? 'border-b-[5px] border-b-white' : ''}`}
+        >
+          Khách hàng
+        </Link>
       </div>
       <DropdownMenu>
         <DropdownMenuTrigger className='border-none outline-none text-lg'>
