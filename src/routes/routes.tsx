@@ -18,7 +18,7 @@ const ListPage = React.lazy(() => import('@/pages/List/List'))
 const AboutUsPage = React.lazy(() => import('@/pages/AboutUs/AboutUs'))
 const DetailPage = React.lazy(() => import('@/pages/Detail/Detail'))
 const ContactUsPage = React.lazy(() => import('@/pages/ContactUs/ContactUs'))
-
+const QuangCaoPage = React.lazy(() => import('@/pages/QuangCao/quangcao'))
 export const routes = createBrowserRouter([
   {
     id: 'root',
@@ -52,6 +52,14 @@ export const routes = createBrowserRouter([
         element: (
           <Suspense fallback={<Loading />}>
             <ContactUsPage />
+          </Suspense>
+        )
+      },
+      {
+        path: '/quang-cao-meta',
+        element: (
+          <Suspense fallback={<Loading />}>
+            <QuangCaoPage />
           </Suspense>
         )
       },

@@ -26,6 +26,10 @@ const Navbar = () => {
     {
       title: 'LIÊN HỆ',
       path: 'lien-he'
+    },
+    {
+      title: 'Quảng cáo meta',
+      path: 'quang-cao-meta'
     }
   ]
   const [openSidebar, setOpenSidebar] = useState<boolean>(false)
