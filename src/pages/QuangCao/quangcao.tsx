@@ -68,7 +68,7 @@ const QuangCao = () => {
       </div>
       <div className='pt-[100px] max-w-[1200px] m-auto relative min-h-[800px]'>
         <div className='absolute top-[-400px] left-[-60px] w-[600px] max-sm:w-[400px] max-sm:top-[-100px] max-sm:left-[0]'>
-          <img src='/images/noti.png' alt='' />
+          <img src='/images/noti-1.png' alt='' />
         </div>
         <div className='pt-[250px] pb-[120px]'>
           <div className='title text-center flex items-center justify-center max-sm:!text-[30px] px-[10px]'>
@@ -381,6 +381,27 @@ const QuangCao = () => {
             </div>
             <div>
               <img src='/images/win-06.jpg' alt='' />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className='w-full min-h-[300px] bg-[#0013A1]'>
+        <div className='title text-center flex items-center justify-center pt-[50px] max-sm:!text-[30px] px-[10px] !text-white'>
+          Showcase
+        </div>
+        <div className='max-w-[1200px] m-auto'>
+          <div className='grid grid-cols-2 py-[50px] justify-between gap-[10px] max-sm:px-[10px]'>
+            <div>
+              <img src='/images/case-1.jpg' alt='' />
+            </div>
+            <div>
+              <img src='/images/case-2.jpg' alt='' />
+            </div>
+            <div>
+              <img src='/images/case-3.jpg' alt='' />
+            </div>
+            <div>
+              <img src='/images/case-4.jpg' alt='' />
             </div>
           </div>
         </div>

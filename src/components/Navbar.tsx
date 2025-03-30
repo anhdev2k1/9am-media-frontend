@@ -28,7 +28,7 @@ const Navbar = () => {
       path: 'lien-he'
     },
     {
-      title: 'Quảng cáo meta',
+      title: 'QUẢNG CÁO META',
       path: 'quang-cao-meta'
     }
   ]
