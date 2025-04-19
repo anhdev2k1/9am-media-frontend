@@ -55,6 +55,15 @@ const Home = () => {
       </section>
 
       <section className='p-5 max-w-[1200px] m-auto max-sm:p-3'>
+        <Link
+          to='https://web.facebook.com/business/partner-directory/search?solution_type=campaign_management&id=6232261756898794&_rdc=1&_rdr'
+          className='w-full flex flex-col gap-[20px] items-center justify-center pt-[30px]'
+        >
+          <img src='/images/partner-badge.png' alt='partner-badge' className='max-w-[200px] max-sm:w-[60%]' />
+          <h3 className='w-[60%] max-sm:w-full text-black font-[800] text-[20px] text-center'>
+            9AM MEDIA VIETNAM IS NOW A META BUSINESS PARTNERS.
+          </h3>
+        </Link>
         <div className='w-max relative m-auto lg:pt-[50px]'>
           <h1
             className='max-sm:text-[50px] lg:text-[100px] font-[900] uppercase text-primary leading-[186px]'
@@ -387,7 +396,7 @@ const Home = () => {
                   >
                     <img
                       src={item?.image}
-                      alt={'kh' + item?.name ?? ''}
+                      alt={'kh' + item?.name}
                       className='rounded-[30px] w-max h-[150px] object-contain scale-[1] group-hover:scale-[1.1] transition-transform'
                     />
                   </div>

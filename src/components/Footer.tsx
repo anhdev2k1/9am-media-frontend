@@ -1,4 +1,5 @@
 import logo from '@/assets/images/logo.png'
+import { Link } from 'react-router-dom'
 
 const Footer = () => {
   return (
@@ -14,6 +15,21 @@ const Footer = () => {
           Tầng 3A, 29 Yên Bái, Phường Hải Châu I, Quận Hải Châu, Thành phố Đà Nẵng, Việt Nam
         </span>
         <span className='font-semibold'>Mã số thuế: 0402217718</span>
+      </div>
+
+      <div className='flex flex-col gap-5'>
+        <div className='flex items-center gap-2'>
+          <span className='text-xl font-bold uppercase'>Meta Business Partners</span>
+        </div>
+        <Link
+          to='https://web.facebook.com/business/partner-directory/search?solution_type=campaign_management&id=6232261756898794&_rdc=1&_rdr'
+          className='w-full flex flex-col gap-[20px] '
+        >
+          <img src='/images/partner-badge.png' alt='partner-badge' className='max-w-[200px] max-sm:w-[60%]' />
+          <h3 className='w-[60%] max-sm:w-full text-white font-[600] text-[17px] '>
+            9AM MEDIA VIETNAM IS NOW A META BUSINESS PARTNERS.
+          </h3>
+        </Link>
       </div>
 
       <div className='flex flex-col gap-5'>
