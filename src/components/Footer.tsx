@@ -12,7 +12,7 @@ const Footer = () => {
         <img src={logo} alt='' className='w-[50px]' />
         <span className='font-semibold'>9AM MEDIA CO., LTD</span>
         <span className='text-[14px] font-semibold '>
-          Tầng 3A, 29 Yên Bái, Phường Hải Châu I, Quận Hải Châu, Thành phố Đà Nẵng, Việt Nam
+          Tầng 11, Tòa nhà Misa Tower, 188 Đường 30/4, Phường Hòa Cường Bắc, Hải Châu, Đà Nẵng
         </span>
         <span className='font-semibold'>Mã số thuế: 0402217718</span>
       </div>
