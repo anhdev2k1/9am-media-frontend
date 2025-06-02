@@ -4,15 +4,15 @@ import { CardBody, CardContainer, CardItem } from '@/components/Card3D'
 const AboutUs = () => {
   return (
     <div className='w-full'>
-      <section className='w-full h-[100vh] max-sm:h-[50vh]'>
+      <section className='w-full lg:h-[100vh] bg-black'>
         <video
           autoPlay
           muted
           playsInline
           loop
-          className='max-sm:h-[50vh] h-[100vh] w-full object-cover object-center block'
+          className='max-sm:h-[40vh] lg:h-[100vh] w-full object-contain object-center block'
         >
-          <source src='/images/video_2.mp4' />
+          <source src='/images/video.mp4' />
         </video>
       </section>
       <section className='mt-[100px] max-w-[1200px] m-auto relative p-5 max-sm:text-center'>
