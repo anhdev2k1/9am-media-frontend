@@ -27,10 +27,10 @@ const Navbar = () => {
       title: 'LIÊN HỆ',
       path: 'lien-he'
     },
-    {
-      title: 'QUẢNG CÁO META',
-      path: 'quang-cao-meta'
-    }
+    // {
+    //   title: 'QUẢNG CÁO META',
+    //   path: 'quang-cao-meta'
+    // }
   ]
   const [openSidebar, setOpenSidebar] = useState<boolean>(false)
 
